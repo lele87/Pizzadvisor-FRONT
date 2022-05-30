@@ -24,9 +24,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --passWithNoTests",
     "eject": "react-scripts eject",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test-coverage": "npm run test -- --coverage --watchAll=false"
   },
   "eslintConfig": {
     "extends": [
@@ -53,5 +54,11 @@
   "license": "ISC",
   "devDependencies": {
     "husky": "^7.0.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "!src/index.tsx",
+      "!src/reportWebVitals.ts"
+    ]
   }
 }
