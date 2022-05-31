@@ -1,4 +1,5 @@
 import { useState } from "react";
+import StyledRegisterForm from "./StyledRegisterForm";
 
 const RegisterForm = (): JSX.Element => {
   const blankFields = {
@@ -18,40 +19,44 @@ const RegisterForm = (): JSX.Element => {
 
   return (
     <>
-      <p className="welcome">Create account</p>
-      <form className="register-form" autoComplete="off" noValidate>
-        <label htmlFor="name">Name</label>
-        <input
-          id="name"
-          value={formData.name}
-          type="text"
-          onChange={changeData}
-          placeholder="Name"
-        />
-        <label htmlFor="username">Username</label>
-        <input
-          id="username"
-          value={formData.username}
-          type="text"
-          onChange={changeData}
-          placeholder="Username"
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          id="password"
-          type="password"
-          onChange={changeData}
-          value={formData.password}
-          placeholder="Password"
-        />
+      <StyledRegisterForm>
+        <p className="welcome">Create account</p>
+        <form className="register-form" autoComplete="off" noValidate>
+          <label htmlFor="name">Name</label>
+          <input
+            id="name"
+            value={formData.name}
+            type="text"
+            onChange={changeData}
+            placeholder="NAME"
+          />
+          <label htmlFor="username">Username</label>
+          <input
+            id="username"
+            value={formData.username}
+            type="text"
+            onChange={changeData}
+            placeholder="USERNAME"
+          />
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            onChange={changeData}
+            value={formData.password}
+            placeholder="PASSWORD"
+          />
 
-        <div className="form-buttons">
-          <button className="signup" type="submit">
-            SIGN UP
-          </button>
-          <button className="button-secondary">LOGIN</button>
-        </div>
-      </form>
+          <div className="form-buttons">
+            <button className="signup" type="submit" onClick={() => {}}>
+              SIGN UP
+            </button>
+            <button className="button-secondary" onClick={() => {}}>
+              LOGIN
+            </button>
+          </div>
+        </form>
+      </StyledRegisterForm>
     </>
   );
 };
