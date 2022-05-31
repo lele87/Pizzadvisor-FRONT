@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useAppDispatch } from "../../redux/store/hooks";
+import { loginThunk } from "../../redux/thunks/userThunks";
 import StyledLoginForm from "./StyledLoginForm";
 
 const LoginForm = (): JSX.Element => {
@@ -8,6 +10,7 @@ const LoginForm = (): JSX.Element => {
   };
 
   const [formData, setFormData] = useState(blankFields);
+  const dispatch = useAppDispatch();
 
   const changeData = (event: { target: { id: string; value: string } }) => {
     setFormData({
@@ -16,11 +19,23 @@ const LoginForm = (): JSX.Element => {
     });
   };
 
+  const handleSubmit = (event: { preventDefault: () => void }) => {
+    event.preventDefault();
+
+    dispatch(loginThunk(formData));
+    setFormData(blankFields);
+  };
+
   return (
     <>
       <StyledLoginForm>
         <span className="welcome">Login Section</span>
-        <form className="login-form" autoComplete="off" noValidate>
+        <form
+          className="login-form"
+          autoComplete="off"
+          noValidate
+          onSubmit={handleSubmit}
+        >
           <label htmlFor="username">Username</label>
           <input
             id="username"
@@ -42,7 +57,6 @@ const LoginForm = (): JSX.Element => {
               className="login"
               disabled={formData.username === "" || formData.password === ""}
               type="submit"
-              onClick={() => {}}
             >
               LOGIN
             </button>
