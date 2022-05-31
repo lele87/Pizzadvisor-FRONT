@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useAppDispatch } from "../../redux/store/hooks";
+import { registerThunk } from "../../redux/thunks/userThunks";
 import StyledRegisterForm from "./StyledRegisterForm";
 
 const RegisterForm = (): JSX.Element => {
@@ -9,12 +11,19 @@ const RegisterForm = (): JSX.Element => {
   };
 
   const [formData, setFormData] = useState(blankFields);
+  const dispatch = useAppDispatch();
 
   const changeData = (event: { target: { id: string; value: string } }) => {
     setFormData({
       ...formData,
       [event.target.id]: event.target.value,
     });
+  };
+
+  const register = (event: { preventDefault: () => void }) => {
+    event.preventDefault();
+    dispatch(registerThunk(formData));
+    setFormData(blankFields);
   };
 
   return (
@@ -56,7 +65,7 @@ const RegisterForm = (): JSX.Element => {
                 formData.name === ""
               }
               type="submit"
-              onClick={() => {}}
+              onClick={register}
             >
               SIGN UP
             </button>

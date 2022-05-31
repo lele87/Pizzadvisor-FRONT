@@ -64,7 +64,7 @@ const StyledRegisterForm = styled.div`
 
   input:focus,
   input:focus {
-    border: 2px solid rgba(0, 0, 0, 0.18) !important;
+    border: 1px solid rgba(0, 0, 0, 0.18);
   }
 
   .form-buttons {
