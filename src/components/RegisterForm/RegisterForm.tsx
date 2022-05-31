@@ -48,7 +48,16 @@ const RegisterForm = (): JSX.Element => {
           />
 
           <div className="form-buttons">
-            <button className="signup" type="submit" onClick={() => {}}>
+            <button
+              className="signup"
+              disabled={
+                formData.username === "" ||
+                formData.password === "" ||
+                formData.name === ""
+              }
+              type="submit"
+              onClick={() => {}}
+            >
               SIGN UP
             </button>
             <button className="button-secondary" onClick={() => {}}>
