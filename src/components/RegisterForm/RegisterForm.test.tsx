@@ -34,4 +34,35 @@ describe("Given a RegisterForm component", () => {
       expect(inputField).toHaveValue(expectedInputText);
     });
   });
+  describe("When the user doesn't type any username, name or password", () => {
+    test("Then the register button should be disabled", () => {
+      render(<RegisterForm />);
+
+      const button = screen.getByRole("button", { name: "SIGN UP" });
+
+      expect(button).toBeDisabled();
+    });
+  });
+
+  describe("When the user fill the name, username and password input fields", () => {
+    test("Then the register button should be enabled", () => {
+      const username = "lelo";
+      const name = "lelo";
+      const password = "lelo";
+
+      render(<RegisterForm />);
+
+      const nameInput = screen.getByLabelText("Name");
+      const usernameInput = screen.getByLabelText("Username");
+      const passwordInput = screen.getByLabelText("Password");
+      const registerButton = screen.getByRole("button", { name: "SIGN UP" });
+
+      userEvent.type(nameInput, name);
+
+      userEvent.type(usernameInput, username);
+      userEvent.type(passwordInput, password);
+
+      expect(registerButton).not.toBeDisabled();
+    });
+  });
 });
