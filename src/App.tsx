@@ -7,6 +7,7 @@ function App() {
     <>
       <h1>Pizzadvisor</h1>
       <LoginForm />
+      {/* <RegisterForm /> */}
     </>
   );
 }

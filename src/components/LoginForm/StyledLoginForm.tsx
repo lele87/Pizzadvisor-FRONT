@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-const StyledRegisterForm = styled.div`
+const StyledLoginForm = styled.div`
   background-color: #ffffff;
   width: 400px;
   margin: 60px auto;
-  height: 650px;
+  height: 600px;
   border-radius: 1.5em;
   display: flex;
   flex-direction: column;
@@ -51,6 +51,15 @@ const StyledRegisterForm = styled.div`
     font-family: "Ubuntu", sans-serif;
   }
 
+  input::placeholder {
+    color: #ff5b5b;
+  }
+
+  input:focus,
+  input:focus {
+    border: 1px solid rgba(0, 0, 0, 0.18);
+  }
+
   label {
     margin: 0;
     text-align: center;
@@ -63,18 +72,13 @@ const StyledRegisterForm = styled.div`
     letter-spacing: 1px;
   }
 
-  input:focus,
-  input:focus {
-    border: 1px solid rgba(0, 0, 0, 0.18);
-  }
-
   .form-buttons {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  .signup {
+  .login {
     width: 60%;
     height: 40px;
     justify-content: center;
@@ -119,9 +123,11 @@ const StyledRegisterForm = styled.div`
     line-height: 20px;
   }
 
-  input::placeholder {
-    color: #ff5b5b;
+  .signup-info {
+    position: relative;
+    top: 90px;
+    font-family: "Abadi MT Condensed Light";
   }
 `;
 
-export default StyledRegisterForm;
+export default StyledLoginForm;

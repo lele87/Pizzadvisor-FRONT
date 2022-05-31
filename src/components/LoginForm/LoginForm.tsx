@@ -1,4 +1,5 @@
 import { useState } from "react";
+import StyledLoginForm from "./StyledLoginForm";
 
 const LoginForm = (): JSX.Element => {
   const blankFields = {
@@ -17,39 +18,41 @@ const LoginForm = (): JSX.Element => {
 
   return (
     <>
-      <span className="welcome">Login Section</span>
-      <form className="login-form" autoComplete="off" noValidate>
-        <label htmlFor="username">Username</label>
-        <input
-          id="username"
-          value={formData.username}
-          type="text"
-          onChange={changeData}
-          placeholder="USERNAME"
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          id="password"
-          value={formData.password}
-          type="password"
-          onChange={changeData}
-          placeholder="PASSWORD"
-        />
-        <div className="form-buttons">
-          <button
-            className="signup"
-            disabled={formData.username === "" || formData.password === ""}
-            type="submit"
-            onClick={() => {}}
-          >
-            LOGIN
-          </button>
-          <span>Don't you have an account?</span>
-          <button className="button-secondary" onClick={() => {}}>
-            SIGN UP
-          </button>
-        </div>
-      </form>
+      <StyledLoginForm>
+        <span className="welcome">Login Section</span>
+        <form className="login-form" autoComplete="off" noValidate>
+          <label htmlFor="username">Username</label>
+          <input
+            id="username"
+            value={formData.username}
+            type="text"
+            onChange={changeData}
+            placeholder="USERNAME"
+          />
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            value={formData.password}
+            type="password"
+            onChange={changeData}
+            placeholder="PASSWORD"
+          />
+          <div className="form-buttons">
+            <button
+              className="login"
+              disabled={formData.username === "" || formData.password === ""}
+              type="submit"
+              onClick={() => {}}
+            >
+              LOGIN
+            </button>
+            <span className="signup-info">Don't you have an account?</span>
+            <button className="button-secondary" onClick={() => {}}>
+              SIGN UP
+            </button>
+          </div>
+        </form>
+      </StyledLoginForm>
     </>
   );
 };
