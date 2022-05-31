@@ -3,7 +3,7 @@ import { User } from "../../types/types";
 
 interface State {
   userInfo: User;
-  logged: Boolean;
+  logged: boolean;
 }
 
 const initialState: State = {
@@ -23,9 +23,14 @@ const userSlice = createSlice({
       userInfo: { ...action.payload },
       logged: false,
     }),
+    login: (user, action: PayloadAction<User>) => ({
+      userInfo: { ...action.payload },
+      logged: true,
+    }),
   },
 });
 
-export const { register: registerActionCreator } = userSlice.actions;
+export const { register: registerActionCreator, login: loginActionCreator } =
+  userSlice.actions;
 
 export default userSlice.reducer;
