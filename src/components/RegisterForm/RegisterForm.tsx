@@ -29,7 +29,7 @@ const RegisterForm = (): JSX.Element => {
   return (
     <>
       <StyledRegisterForm>
-        <p className="welcome">Create account</p>
+        <span className="welcome">Create account</span>
         <form className="register-form" autoComplete="off" noValidate>
           <label htmlFor="name">Name</label>
           <input
