@@ -1,5 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { Provider } from "react-redux";
+import store from "../../redux/store";
 import RegisterForm from "./RegisterForm";
 
 describe("Given a RegisterForm component", () => {
@@ -7,7 +9,11 @@ describe("Given a RegisterForm component", () => {
     test("Then it should render 3 input fields and 2 buttons", () => {
       const expectedButtons = 2;
 
-      render(<RegisterForm />);
+      render(
+        <Provider store={store}>
+          <RegisterForm />
+        </Provider>
+      );
 
       const nameInput = screen.getByLabelText("Name");
       const usernameInput = screen.getByLabelText("Username");
@@ -25,7 +31,11 @@ describe("Given a RegisterForm component", () => {
     test("Then it should render the name 'lelo'", () => {
       const expectedInputText = "lelo";
 
-      render(<RegisterForm />);
+      render(
+        <Provider store={store}>
+          <RegisterForm />
+        </Provider>
+      );
 
       const inputField = screen.getByLabelText("Name");
 
@@ -36,8 +46,11 @@ describe("Given a RegisterForm component", () => {
   });
   describe("When the user doesn't type any username, name or password", () => {
     test("Then the register button should be disabled", () => {
-      render(<RegisterForm />);
-
+      render(
+        <Provider store={store}>
+          <RegisterForm />
+        </Provider>
+      );
       const button = screen.getByRole("button", { name: "SIGN UP" });
 
       expect(button).toBeDisabled();
@@ -50,8 +63,11 @@ describe("Given a RegisterForm component", () => {
       const name = "lelo";
       const password = "lelo";
 
-      render(<RegisterForm />);
-
+      render(
+        <Provider store={store}>
+          <RegisterForm />
+        </Provider>
+      );
       const nameInput = screen.getByLabelText("Name");
       const usernameInput = screen.getByLabelText("Username");
       const passwordInput = screen.getByLabelText("Password");
