@@ -6,23 +6,21 @@ const StyledRegisterForm = styled.div`
   height: 100vh;
   margin: 7em auto;
   border-radius: 1.5em;
-  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  background-color: #fafafa;
   border-radius: 4rem;
 
   .welcome {
     font-style: normal;
-    font-weight: 600;
     font-size: 24px;
     line-height: 28px;
     text-align: center;
     letter-spacing: 1px;
     color: #2d2a2a;
+    padding-bottom: 40px;
   }
 
   form {
@@ -71,7 +69,6 @@ const StyledRegisterForm = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
   }
 
   .signup {
