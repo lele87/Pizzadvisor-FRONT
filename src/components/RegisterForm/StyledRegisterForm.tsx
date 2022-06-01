@@ -3,7 +3,7 @@ import styled from "styled-components";
 const StyledRegisterForm = styled.div`
   background-color: #ffffff;
   width: 400px;
-  margin: 60px auto;
+  margin: 20px auto;
   height: 650px;
   border-radius: 1.5em;
   display: flex;
