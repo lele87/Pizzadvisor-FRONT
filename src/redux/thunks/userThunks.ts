@@ -35,8 +35,8 @@ export const registerThunk =
     const { data } = await axios.post(url, userData);
     if (data) {
       const newUser = {
-        username: data.username,
-        password: data.password,
+        username: userData.username,
+        password: userData.password,
       };
       dispatch(loginThunk(newUser));
     }

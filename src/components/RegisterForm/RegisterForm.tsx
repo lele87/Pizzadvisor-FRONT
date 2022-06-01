@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { useAppDispatch } from "../../redux/store/hooks";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { registerThunk } from "../../redux/thunks/userThunks";
 import StyledRegisterForm from "./StyledRegisterForm";
 
@@ -10,8 +11,10 @@ const RegisterForm = (): JSX.Element => {
     password: "",
   };
 
+  const navigate = useNavigate();
   const [formData, setFormData] = useState(blankFields);
   const dispatch = useAppDispatch();
+  const userInfo = useAppSelector((state) => state.user);
 
   const changeData = (event: { target: { id: string; value: string } }) => {
     setFormData({
@@ -24,6 +27,17 @@ const RegisterForm = (): JSX.Element => {
     event.preventDefault();
     dispatch(registerThunk(formData));
     setFormData(blankFields);
+  };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/home");
+    }
+  }, [navigate, userInfo]);
+
+  const navigateToLogin = (event: any) => {
+    navigate("/login");
   };
 
   return (
@@ -69,7 +83,7 @@ const RegisterForm = (): JSX.Element => {
             >
               SIGN UP
             </button>
-            <button className="button-secondary" onClick={() => {}}>
+            <button className="button-secondary" onClick={navigateToLogin}>
               LOGIN
             </button>
           </div>
