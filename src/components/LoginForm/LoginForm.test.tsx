@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 import store from "../../redux/store";
 import LoginForm from "./LoginForm";
 
@@ -10,9 +11,11 @@ describe("Given a LoginForm Component", () => {
       const expectedButtons = 2;
 
       render(
-        <Provider store={store}>
-          <LoginForm />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <LoginForm />
+          </Provider>
+        </BrowserRouter>
       );
 
       const usernameInput = screen.getByLabelText("Username");
@@ -30,9 +33,11 @@ describe("Given a LoginForm Component", () => {
       const expectedInputText = "lelo";
 
       render(
-        <Provider store={store}>
-          <LoginForm />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <LoginForm />
+          </Provider>
+        </BrowserRouter>
       );
 
       const inputField = screen.getByLabelText("Username");
@@ -45,9 +50,11 @@ describe("Given a LoginForm Component", () => {
   describe("When the user doesn't type any username or password", () => {
     test("Then the login button should be disabled", () => {
       render(
-        <Provider store={store}>
-          <LoginForm />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <LoginForm />
+          </Provider>
+        </BrowserRouter>
       );
       const button = screen.getByRole("button", { name: "LOGIN" });
 
@@ -60,9 +67,11 @@ describe("Given a LoginForm Component", () => {
       const password = "lelo";
 
       render(
-        <Provider store={store}>
-          <LoginForm />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <LoginForm />
+          </Provider>
+        </BrowserRouter>
       );
 
       const usernameInput = screen.getByLabelText("Username");
