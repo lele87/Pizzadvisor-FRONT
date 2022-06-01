@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { loginThunk } from "../../redux/thunks/userThunks";
 import StyledLoginForm from "./StyledLoginForm";
