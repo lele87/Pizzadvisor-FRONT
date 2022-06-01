@@ -110,7 +110,6 @@ const StyledLoginForm = styled.div`
     background: black;
     font-size: 1em;
     font-weight: 400;
-    margin-top: 20px;
     outline: none;
     border: none;
     border-radius: 20px;
@@ -125,7 +124,7 @@ const StyledLoginForm = styled.div`
 
   .signup-info {
     position: relative;
-    top: 90px;
+    top: 80px;
     font-family: "Abadi MT Condensed Light";
   }
 `;
