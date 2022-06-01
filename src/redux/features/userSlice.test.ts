@@ -1,6 +1,8 @@
+import { userInfo } from "os";
 import { mockUserRegister } from "../../mocks/mockUser";
 import userSlice, {
   loginActionCreator,
+  logoutActionCreator,
   registerActionCreator,
 } from "./userSlice";
 
@@ -52,6 +54,37 @@ describe("Given a user register reducer", () => {
 
       const registerAction = registerActionCreator(userInfo);
       const userStatus = userSlice(initialState, registerAction);
+
+      expect(userStatus).toEqual(expectedState);
+    });
+  });
+});
+
+describe("Given a user logout reducer", () => {
+  describe("When it receives a state status and a logout action with the logged user credentials", () => {
+    test("Then it should return the initial user state and the logged property false", () => {
+      const initialState = {
+        userInfo: {
+          username: "lelo",
+          name: "lelo",
+          id: "1",
+        },
+        logged: true,
+      };
+
+      // const userInfo = mockUserRegister;
+
+      const expectedState = {
+        userInfo: {
+          username: "",
+          name: "",
+          id: "",
+        },
+        logged: false,
+      };
+
+      const logoutAction = logoutActionCreator();
+      const userStatus = userSlice(initialState, logoutAction);
 
       expect(userStatus).toEqual(expectedState);
     });
