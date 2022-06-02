@@ -14,6 +14,7 @@ const StyledRegisterForm = styled.div`
   border-radius: 4rem;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
   background-color: #fafafa;
+  letter-spacing: 1px;
 
   .welcome {
     font-style: normal;
