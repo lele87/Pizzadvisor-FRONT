@@ -26,8 +26,8 @@ const StyledNavbar = styled.div`
   }
 
   img {
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
   }
 `;
 
