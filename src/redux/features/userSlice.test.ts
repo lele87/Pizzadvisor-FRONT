@@ -1,4 +1,3 @@
-import { userInfo } from "os";
 import { mockUserRegister } from "../../mocks/mockUser";
 import userSlice, {
   loginActionCreator,

@@ -3,7 +3,9 @@ import StyledPizzeria from "./StyledPizzeria";
 
 const Pizzeria = ({
   pizzeria: { name, address, image, timetable },
-}: IPizzeria) => {
+}: {
+  pizzeria: IPizzeria;
+}) => {
   return (
     <>
       <StyledPizzeria>

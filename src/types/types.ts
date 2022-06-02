@@ -5,12 +5,10 @@ export interface User {
 }
 
 export interface IPizzeria {
-  pizzeria: {
-    name: string;
-    address: string;
-    image: string;
-    timetable: string;
-    specialty: [string];
-    owner: string;
-  };
+  name: string;
+  address: string;
+  image: string;
+  timetable: string;
+  specialty: string[];
+  owner: string;
 }
