@@ -10,6 +10,12 @@ const StyledHeader = styled.div`
   align-items: center;
   border-radius: 4rem;
 
+  h1 {
+    @media (max-width: 320px) {
+      font-size: 18px;
+    }
+  }
+
   button {
     width: 120px;
     height: 50px;
@@ -21,6 +27,11 @@ const StyledHeader = styled.div`
     cursor: pointer;
     font-family: "Abadi MT Condensed Light";
     letter-spacing: 1px;
+
+    @media (max-width: 320px) {
+      width: 70px;
+      height: 20px;
+    }
   }
 `;
 
