@@ -12,6 +12,8 @@ describe("Given a Pizzeria component", () => {
         address: "carrer ciccio",
         image: "",
         timetable: "15:00-23:00",
+        owner: "53454354323646362362",
+        specialty: ["Margherita", "Marinara", "Capricciosa"],
       };
 
       render(
