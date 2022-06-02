@@ -9,6 +9,8 @@ const StyledHeader = styled.div`
   justify-content: space-around;
   align-items: center;
   border-radius: 4rem;
+  margin-bottom: 30px;
+  margin-top: 10px;
 
   h1 {
     @media (max-width: 320px) {

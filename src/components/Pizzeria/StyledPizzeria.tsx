@@ -3,14 +3,12 @@ import styled from "styled-components";
 const StyledPizzeria = styled.li`
   display: flex;
   align-items: center;
-  width: 97%;
-  height: 300px;
-  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  width: 90%;
   background-color: #fafafa;
   border-radius: 4rem;
-  margin-top: 30px;
-  margin-left: 10px;
+  margin: 0 auto;
   letter-spacing: 1px;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
 
   @media (max-width: 316px) {
     flex-direction: column;
@@ -72,7 +70,7 @@ const StyledPizzeria = styled.li`
     }
 
     @media (max-width: 460px) {
-      font-size: 10px;
+      font-size: 15px;
     }
   }
 
@@ -84,7 +82,6 @@ const StyledPizzeria = styled.li`
     font-weight: 30px;
     position: relative;
     bottom: 30px;
-    gap: 2rem;
 
     @media (min-width: 1280px) {
       font-size: 12px;
@@ -95,7 +92,7 @@ const StyledPizzeria = styled.li`
     }
 
     @media (max-width: 460px) {
-      font-size: 8px;
+      font-size: 11px;
     }
   }
 `;
