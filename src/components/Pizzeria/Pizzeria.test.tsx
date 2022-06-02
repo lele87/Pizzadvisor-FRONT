@@ -7,10 +7,19 @@ import Pizzeria from "./Pizzeria";
 describe("Given a Pizzeria component", () => {
   describe("When it's invoked", () => {
     test("Then it should render 1 heading and 1 image", () => {
+      const pizzeria = {
+        name: "ciccio",
+        address: "carrer ciccio",
+        image: "",
+        timetable: "15:00-23:00",
+        owner: "53454354323646362362",
+        specialty: ["Margherita", "Marinara", "Capricciosa"],
+      };
+
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <Pizzeria />
+            <Pizzeria pizzeria={pizzeria} />
           </Provider>
         </BrowserRouter>
       );
