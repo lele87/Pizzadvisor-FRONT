@@ -30,7 +30,7 @@ const LoginForm = (): JSX.Element => {
     }
   }, [navigate, userInfo]);
 
-  const navigateToRegister = (event: any) => {
+  const navigateToRegister = () => {
     navigate("/register");
   };
 
