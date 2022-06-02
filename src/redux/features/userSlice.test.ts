@@ -72,8 +72,6 @@ describe("Given a user logout reducer", () => {
         logged: true,
       };
 
-      // const userInfo = mockUserRegister;
-
       const expectedState = {
         userInfo: {
           username: "",
