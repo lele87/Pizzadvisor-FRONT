@@ -15,9 +15,10 @@ describe("Given a PizzeriaList component", () => {
           </Provider>
         </BrowserRouter>
       );
-      const listOfGames = screen.getByRole("list");
 
-      expect(listOfGames).toBeInTheDocument();
+      const pizzeriaList = screen.getByRole("list");
+
+      expect(pizzeriaList).toBeInTheDocument();
     });
   });
 });
