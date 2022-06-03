@@ -12,10 +12,8 @@ describe("Given a loadPizzeriasThunk function", () => {
     test("Then it should dispatch the loadPizzeriasActionCreator", async () => {
       const dispatch = jest.fn();
 
-      const token = "1234567890";
-
       const loadAction = loadPizzeriasActionCreator(mockPizzerias);
-      const thunk = loadPizzeriasThunk(token);
+      const thunk = loadPizzeriasThunk();
 
       await thunk(dispatch);
 

@@ -6,29 +6,12 @@ import {
 } from "../features/userSlice";
 import { AppDispatch } from "../store";
 import toast from "react-hot-toast";
-
-interface UserRegister {
-  name: string;
-  username: string;
-  password: string;
-}
-
-interface UserLogin {
-  username: string;
-  password: string;
-}
-
-interface ResponseApi {
-  data: {
-    token: string;
-  };
-}
-
-interface DecodeToken {
-  name: string;
-  username: string;
-  id: string;
-}
+import {
+  DecodeToken,
+  ResponseApi,
+  UserLogin,
+  UserRegister,
+} from "../../types/types";
 
 export const registerThunk =
   (userData: UserRegister) => async (dispatch: AppDispatch) => {
