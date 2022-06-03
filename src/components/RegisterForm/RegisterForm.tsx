@@ -83,6 +83,7 @@ const RegisterForm = (): JSX.Element => {
             >
               SIGN UP
             </button>
+            <span className="signup-info">Do you have an account?</span>
             <button className="button-secondary" onClick={navigateToLogin}>
               LOGIN
             </button>

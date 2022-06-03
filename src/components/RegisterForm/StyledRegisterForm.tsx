@@ -2,8 +2,7 @@ import styled from "styled-components";
 
 const StyledRegisterForm = styled.div`
   background-color: #ffffff;
-  width: 400px;
-  margin: 20px auto;
+  width: 380px;
   height: 650px;
   border-radius: 1.5em;
   display: flex;
@@ -15,6 +14,7 @@ const StyledRegisterForm = styled.div`
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
   background-color: #fafafa;
   letter-spacing: 1px;
+  margin: 0 auto;
 
   .welcome {
     font-style: normal;
@@ -85,7 +85,6 @@ const StyledRegisterForm = styled.div`
     font-size: 1em;
     font-weight: 400;
     margin-top: 20px;
-    outline: none;
     border: none;
     border-radius: 20px;
     transition: 0.2s ease-in;
@@ -122,6 +121,13 @@ const StyledRegisterForm = styled.div`
 
   input::placeholder {
     color: #ff5b5b;
+  }
+
+  .signup-info {
+    position: relative;
+    font-size: 14px;
+    top: 90px;
+    font-family: "Abadi MT Condensed Light";
   }
 `;
 

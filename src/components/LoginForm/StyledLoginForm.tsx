@@ -2,8 +2,7 @@ import styled from "styled-components";
 
 const StyledLoginForm = styled.div`
   background-color: #ffffff;
-  width: 400px;
-  margin: 60px auto;
+  width: 380px;
   height: 600px;
   border-radius: 1.5em;
   display: flex;
@@ -14,6 +13,7 @@ const StyledLoginForm = styled.div`
   border-radius: 4rem;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
   background-color: #fafafa;
+  margin: 0 auto;
 
   .welcome {
     font-style: normal;

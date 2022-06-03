@@ -3,6 +3,7 @@ import styled from "styled-components";
 const StyledNavbar = styled.div`
   display: flex;
   position: sticky;
+  bottom: 0;
 
   ul {
     display: flex;
@@ -12,9 +13,9 @@ const StyledNavbar = styled.div`
     padding-right: 10px;
     margin-bottom: 0px;
     position: fixed;
-    bottom: 10px;
-    width: 97.4vw;
-    border-radius: 4rem;
+    bottom: 0px;
+    width: 96vw;
+    border-radius: 3rem 3rem 0 0;
     box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
     background-color: #fafafa;
     align-items: center;

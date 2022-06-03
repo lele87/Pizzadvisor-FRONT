@@ -82,6 +82,7 @@ const StyledPizzeria = styled.li`
     font-weight: 30px;
     position: relative;
     bottom: 30px;
+    gap: 0.7rem;
 
     @media (min-width: 1280px) {
       font-size: 12px;
@@ -92,7 +93,7 @@ const StyledPizzeria = styled.li`
     }
 
     @media (max-width: 460px) {
-      font-size: 11px;
+      font-size: 12px;
     }
   }
 `;
