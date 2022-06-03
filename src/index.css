@@ -3,6 +3,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Mukta", "Segoe UI", "Roboto",
     "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
+  background-color: #fafafa;
 }
 
 .logo-title {
@@ -11,8 +12,4 @@ body {
   font-weight: 700;
   font-size: 32px;
   font-family: "Mukta", sans-serif;
-}
-
-body {
-  background-color: #fafafa;
 }
