@@ -29,8 +29,9 @@ const StyledHeader = styled.div`
     color: black;
     border: none;
     cursor: pointer;
-    font-family: "Abadi MT Condensed Light";
-    letter-spacing: 1px;
+    font-family: "Mukta", sans-serif;
+    letter-spacing: 2px;
+    font-weight: 700;
 
     @media (max-width: 320px) {
       width: 70px;

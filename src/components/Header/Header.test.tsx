@@ -1,8 +1,16 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import store from "../../redux/store";
 import Header from "./Header";
+
+const mockDispatch = jest.fn();
+
+jest.mock("react-redux", () => ({
+  ...jest.requireActual("react-redux"),
+  useDispatch: () => mockDispatch,
+}));
 
 describe("Given a header", () => {
   describe("When it's invoked", () => {
@@ -20,6 +28,23 @@ describe("Given a header", () => {
 
       expect(expectedHeading).toBeInTheDocument();
       expect(expectedButton).toBeInTheDocument();
+    });
+  });
+  describe("When the user clicks on the logout button", () => {
+    test("Then the dispatch should be invoked", () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <Header />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const logoutButton = screen.getByRole("button", { name: "LOGOUT" });
+
+      userEvent.click(logoutButton);
+
+      expect(mockDispatch).toHaveBeenCalled();
     });
   });
 });
