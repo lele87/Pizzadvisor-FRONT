@@ -96,6 +96,14 @@ const StyledPizzeria = styled.li`
       font-size: 12px;
     }
   }
+
+  .delete-icon {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    bottom: 60px;
+    right: 10px;
+  }
 `;
 
 export default StyledPizzeria;

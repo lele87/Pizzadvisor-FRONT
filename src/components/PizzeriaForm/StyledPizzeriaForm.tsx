@@ -15,6 +15,9 @@ const StyledPizzeriaForm = styled.div`
   background-color: #fafafa;
   letter-spacing: 1px;
   margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
 
   .welcome-form {
     font-style: normal;
