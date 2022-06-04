@@ -11,10 +11,11 @@ const StyledNavbar = styled.div`
     justify-content: space-between;
     padding-left: 10px;
     padding-right: 10px;
+    padding-top: 10px;
     margin-bottom: 0px;
-    position: fixed;
+    position: sticky;
     bottom: 0px;
-    width: 96vw;
+    width: 100%;
     border-radius: 3rem 3rem 0 0;
     box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
     background-color: #fafafa;

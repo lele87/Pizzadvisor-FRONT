@@ -13,6 +13,7 @@ const StyledHeader = styled.div`
   margin-top: 10px;
   margin: 0 auto;
   width: 100%;
+  z-index: 999;
 
   h1 {
     @media (max-width: 320px) {

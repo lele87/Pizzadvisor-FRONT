@@ -117,7 +117,6 @@ describe("Given a RegisterForm component", () => {
       const registerButton = screen.getByRole("button", { name: "SIGN UP" });
 
       userEvent.type(nameInput, name);
-
       userEvent.type(usernameInput, username);
       userEvent.type(passwordInput, password);
 

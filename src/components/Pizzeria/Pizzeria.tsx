@@ -27,8 +27,13 @@ const Pizzeria = ({
             <span>{address}</span>
             <span>Opening Hours: {timetable}</span>
           </div>
-          <button onClick={deletePizzeria}>DELETE</button>
         </div>
+        <img
+          className="delete-icon"
+          src="/images/circle-xmark-solid.svg"
+          alt="Circle X to delete pizzeria"
+          onClick={deletePizzeria}
+        />
       </StyledPizzeria>
     </>
   );
