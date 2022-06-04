@@ -1,4 +1,3 @@
-import axios from "axios";
 import mockPizzerias from "../../mocks/mockPizzerias";
 import { server } from "../../mocks/server";
 import {

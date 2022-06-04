@@ -13,7 +13,7 @@ const HomePage = (): JSX.Element => {
           <h3>What would you like to eat?</h3>
         </div>
         <PizzeriaList />
-        {/* <Navbar /> */}
+        <Navbar />
       </StyledHomePage>
     </>
   );
