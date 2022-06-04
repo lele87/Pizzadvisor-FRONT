@@ -10,6 +10,7 @@ import { loadPizzeriasThunk } from "./redux/thunks/pizzeriathunks";
 import { loginActionCreator } from "./redux/features/userSlice";
 import { DecodeToken } from "./types/types";
 import jwtDecode from "jwt-decode";
+import PizzeriaFormPage from "./pages/PizzeriaFormPage.tsx/PizzeriaFormPage";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -34,6 +35,14 @@ function App() {
           element={
             <Controller>
               <HomePage />
+            </Controller>
+          }
+        />
+        <Route
+          path="/form"
+          element={
+            <Controller>
+              <PizzeriaFormPage />
             </Controller>
           }
         />
