@@ -11,7 +11,7 @@ const pizzeriasSlice = createSlice({
       ...action.payload,
     ],
     deletePizzeria: (pizzerias, action: PayloadAction<string>) =>
-      pizzerias.filter((pizzeria) => pizzeria._id !== action.payload),
+      pizzerias.filter((pizzeria) => pizzeria.id !== action.payload),
   },
 });
 

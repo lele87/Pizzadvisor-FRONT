@@ -39,5 +39,5 @@ export interface IPizzeria {
   timetable: string;
   specialty: string[];
   owner: string;
-  _id: string;
+  id: string;
 }
