@@ -72,7 +72,16 @@ const PizzeriaForm = (): JSX.Element => {
             >
               CREATE PIZZERIA
             </button>
-            <button className="edit-button" onClick={() => {}}>
+            <button
+              className="edit-button"
+              disabled={
+                formData.address === "" ||
+                formData.timetable === "" ||
+                formData.name === ""
+              }
+              type="submit"
+              onClick={() => {}}
+            >
               EDIT PIZZERIA
             </button>
           </div>
