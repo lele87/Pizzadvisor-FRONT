@@ -14,6 +14,7 @@ describe("Given a Pizzeria component", () => {
         timetable: "15:00-23:00",
         owner: "53454354323646362362",
         specialty: ["Margherita", "Marinara", "Capricciosa"],
+        id: "1",
       };
 
       render(

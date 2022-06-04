@@ -1,7 +1,10 @@
 import mockPizzerias from "../../mocks/mockPizzerias";
 import { server } from "../../mocks/server";
-import { loadPizzeriasActionCreator } from "../features/pizzeriasSlice";
-import { loadPizzeriasThunk } from "./pizzeriathunks";
+import {
+  deletePizzeriaActionCreator,
+  loadPizzeriasActionCreator,
+} from "../features/pizzeriasSlice";
+import { deletePizzeriaThunk, loadPizzeriasThunk } from "./pizzeriathunks";
 
 beforeEach(() => server.listen());
 afterEach(() => server.resetHandlers());
@@ -18,6 +21,20 @@ describe("Given a loadPizzeriasThunk function", () => {
       await thunk(dispatch);
 
       expect(dispatch).toHaveBeenCalledWith(loadAction);
+    });
+  });
+});
+
+describe("Given a deletePizzeriaThunk function", () => {
+  describe("When it's called", () => {
+    test("Then it should dispatch the deletePizzeriaActionCreator", async () => {
+      const dispatch = jest.fn();
+
+      const deleteAction = deletePizzeriaActionCreator(mockPizzerias[0].id);
+      const thunk = deletePizzeriaThunk(mockPizzerias[0].id);
+
+      await thunk(dispatch);
+      expect(dispatch).toHaveBeenCalledWith(deleteAction);
     });
   });
 });

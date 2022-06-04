@@ -1,11 +1,18 @@
+import { useAppDispatch } from "../../redux/store/hooks";
+import { deletePizzeriaThunk } from "../../redux/thunks/pizzeriathunks";
 import { IPizzeria } from "../../types/types";
 import StyledPizzeria from "./StyledPizzeria";
 
 const Pizzeria = ({
-  pizzeria: { name, address, image, timetable },
+  pizzeria: { id, name, address, image, timetable },
 }: {
   pizzeria: IPizzeria;
 }) => {
+  const dispatch = useAppDispatch();
+  const deletePizzeria = () => {
+    dispatch(deletePizzeriaThunk(id));
+  };
+
   return (
     <>
       <StyledPizzeria>
@@ -20,6 +27,7 @@ const Pizzeria = ({
             <span>{address}</span>
             <span>Opening Hours: {timetable}</span>
           </div>
+          <button onClick={deletePizzeria}>DELETE</button>
         </div>
       </StyledPizzeria>
     </>

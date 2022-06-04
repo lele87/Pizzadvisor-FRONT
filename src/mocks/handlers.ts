@@ -25,4 +25,10 @@ export const handlers = [
       return res(ctx.status(200), ctx.json(mockPizzerias));
     }
   ),
+  rest.delete(
+    `${process.env.REACT_APP_API_URL}pizzerias/:idPizzeria`,
+    (req, res, ctx) => {
+      return res(ctx.status(200), ctx.json(mockPizzerias[0].id));
+    }
+  ),
 ];

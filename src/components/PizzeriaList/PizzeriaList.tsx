@@ -9,7 +9,7 @@ const PizzeriaList = () => {
     <StyledPizzeriaList>
       <ul>
         {pizzerias.map((pizzeria) => {
-          return <Pizzeria key={pizzeria.owner} pizzeria={pizzeria} />;
+          return <Pizzeria key={pizzeria.id} pizzeria={pizzeria} />;
         })}
       </ul>
     </StyledPizzeriaList>
