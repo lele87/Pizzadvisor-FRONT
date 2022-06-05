@@ -1,3 +1,4 @@
+import axios from "axios";
 import mockPizzerias from "../../mocks/mockPizzerias";
 import { server } from "../../mocks/server";
 import {
@@ -14,6 +15,11 @@ describe("Given a loadPizzeriasThunk function", () => {
   describe("When it's called", () => {
     test("Then it should dispatch the loadPizzeriasActionCreator", async () => {
       const dispatch = jest.fn();
+
+      jest.spyOn(Storage.prototype, "getItem").mockReturnValue("token");
+      axios.get = jest
+        .fn()
+        .mockResolvedValue({ data: { pizzerias: mockPizzerias }, status: 200 });
 
       const loadAction = loadPizzeriasActionCreator(mockPizzerias);
       const thunk = loadPizzeriasThunk();
