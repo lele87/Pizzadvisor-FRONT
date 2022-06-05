@@ -12,12 +12,17 @@ const pizzeriasSlice = createSlice({
     ],
     deletePizzeria: (pizzerias, action: PayloadAction<string>) =>
       pizzerias.filter((pizzeria) => pizzeria.id !== action.payload),
+    createPizzeria: (pizzerias, action: PayloadAction<IPizzeria>) => [
+      ...pizzerias,
+      action.payload,
+    ],
   },
 });
 
 export const {
   loadPizzerias: loadPizzeriasActionCreator,
   deletePizzeria: deletePizzeriaActionCreator,
+  createPizzeria: createPizzeriaActionCreator,
 } = pizzeriasSlice.actions;
 
 export default pizzeriasSlice.reducer;
