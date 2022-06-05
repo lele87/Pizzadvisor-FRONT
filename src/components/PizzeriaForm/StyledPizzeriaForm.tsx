@@ -3,7 +3,7 @@ import styled from "styled-components";
 const StyledPizzeriaForm = styled.div`
   background-color: #ffffff;
   width: 380px;
-  height: 100vh;
+  height: 100%;
   border-radius: 1.5em;
   display: flex;
   flex-direction: column;
@@ -15,9 +15,10 @@ const StyledPizzeriaForm = styled.div`
   background-color: #fafafa;
   letter-spacing: 1px;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 30px;
   margin-bottom: 20px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
+  padding-top: 30px;
 
   .welcome-form {
     font-style: normal;
@@ -26,7 +27,9 @@ const StyledPizzeriaForm = styled.div`
     text-align: center;
     letter-spacing: 1px;
     color: #2d2a2a;
-    padding-bottom: 20px;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    margin-top: 10px;
     font-family: "Abadi MT Condensed Light";
   }
 
