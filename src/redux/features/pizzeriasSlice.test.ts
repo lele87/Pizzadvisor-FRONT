@@ -1,6 +1,7 @@
 import mockPizzerias from "../../mocks/mockPizzerias";
 import { IPizzeria } from "../../types/types";
 import pizzeriasSlice, {
+  createPizzeriaActionCreator,
   deletePizzeriaActionCreator,
   loadPizzeriasActionCreator,
 } from "./pizzeriasSlice";
@@ -32,6 +33,30 @@ describe("Given a delete pizzeria reducer", () => {
       const initialState = mockPizzerias;
 
       const pizzeriaStatus = pizzeriasSlice(initialState, deleteAction);
+
+      expect(pizzeriaStatus).toHaveLength(expectedLength);
+    });
+  });
+});
+
+describe("Given a createPizzeria reducer", () => {
+  describe("When it receives an initial state with 2 pizzerias and a create action with the pizzeria's info", () => {
+    test("Then it should return 3 pizzerias", () => {
+      const expectedLength = 3;
+      const initialState = mockPizzerias;
+      const newPizzeria = {
+        name: "Nap",
+        address: "Carrer Ferran",
+        timetable: "15-23",
+        image: "image",
+        owner: "629684abc46cf477e7ca7009",
+        specialty: ["Margherita", "Marinara", "Olives"],
+        id: "3",
+      };
+
+      const createAction = createPizzeriaActionCreator(newPizzeria);
+
+      const pizzeriaStatus = pizzeriasSlice(initialState, createAction);
 
       expect(pizzeriaStatus).toHaveLength(expectedLength);
     });
