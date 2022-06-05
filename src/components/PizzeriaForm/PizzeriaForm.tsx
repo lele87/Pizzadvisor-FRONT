@@ -6,6 +6,7 @@ const PizzeriaForm = (): JSX.Element => {
     name: "",
     timetable: "",
     address: "",
+    specialty: "",
     image: "",
   };
 
@@ -50,6 +51,14 @@ const PizzeriaForm = (): JSX.Element => {
             type="text"
             onChange={changeData}
             placeholder="ADDRESS"
+          />
+          <label htmlFor="specialty">Special Pizza</label>
+          <input
+            id="specialty"
+            value={formData.specialty}
+            type="text"
+            onChange={changeData}
+            placeholder="SPECIAL PIZZA"
           />
           <label htmlFor="image">Image</label>
           <input
