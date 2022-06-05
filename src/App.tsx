@@ -11,6 +11,7 @@ import { loginActionCreator } from "./redux/features/userSlice";
 import { DecodeToken } from "./types/types";
 import jwtDecode from "jwt-decode";
 import PizzeriaFormPage from "./pages/PizzeriaFormPage.tsx/PizzeriaFormPage";
+import AntiController from "./components/AntiController/AntiController";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -28,8 +29,22 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
+        <Route
+          path="/login"
+          element={
+            <AntiController>
+              <LoginPage />
+            </AntiController>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <AntiController>
+              <RegisterPage />
+            </AntiController>
+          }
+        />
         <Route
           path="/home"
           element={
