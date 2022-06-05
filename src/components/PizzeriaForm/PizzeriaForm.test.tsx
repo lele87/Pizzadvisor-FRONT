@@ -14,7 +14,7 @@ jest.mock("react-redux", () => ({
 
 describe("Given a PizzeriaForm component", () => {
   describe("When it's invoked", () => {
-    test("Then it should render 4 input fields and 2 buttons", () => {
+    test("Then it should render 5 input fields and 2 buttons", () => {
       const expectedButtons = 2;
 
       render(
@@ -28,12 +28,14 @@ describe("Given a PizzeriaForm component", () => {
       const nameInput = screen.getByLabelText("Name");
       const addressInput = screen.getByLabelText("Address");
       const timetableInput = screen.getByLabelText("Opening Hours");
+      const specialtyInput = screen.getByLabelText("Special Pizza");
       const imageInput = screen.getByLabelText("Image");
       const buttons = screen.getAllByRole("button");
 
       expect(nameInput).toBeInTheDocument();
       expect(addressInput).toBeInTheDocument();
       expect(timetableInput).toBeInTheDocument();
+      expect(specialtyInput).toBeInTheDocument();
       expect(imageInput).toBeInTheDocument();
 
       expect(buttons).toHaveLength(expectedButtons);
