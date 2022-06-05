@@ -16,7 +16,7 @@ const AntiController = ({ children }: Props) => {
     }
   }, [logged, navigate]);
 
-  if (logged) {
+  if (!logged) {
     return children;
   } else {
     return null;
