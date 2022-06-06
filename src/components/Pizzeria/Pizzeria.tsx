@@ -1,10 +1,10 @@
-import { useAppDispatch } from "../../redux/store/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { deletePizzeriaThunk } from "../../redux/thunks/pizzeriathunks";
 import { IPizzeria } from "../../types/types";
 import StyledPizzeria from "./StyledPizzeria";
 
 const Pizzeria = ({
-  pizzeria: { id, name, address, image, timetable },
+  pizzeria: { id, name, address, image, timetable, owner },
 }: {
   pizzeria: IPizzeria;
 }) => {
@@ -12,6 +12,7 @@ const Pizzeria = ({
   const deletePizzeria = () => {
     dispatch(deletePizzeriaThunk(id));
   };
+  const user = useAppSelector((state) => state.user);
 
   return (
     <>
@@ -36,12 +37,16 @@ const Pizzeria = ({
             <span>{timetable}</span>
           </div>
         </div>
-        <img
-          className="delete-icon"
-          src="/images/circle-xmark-solid.svg"
-          alt="Circle X to delete pizzeria"
-          onClick={deletePizzeria}
-        />
+        {user.userInfo.id === owner ? (
+          <img
+            className="delete-icon"
+            src="/images/circle-xmark-solid.svg"
+            alt="Circle X to delete pizzeria"
+            onClick={deletePizzeria}
+          />
+        ) : (
+          ""
+        )}
       </StyledPizzeria>
     </>
   );
