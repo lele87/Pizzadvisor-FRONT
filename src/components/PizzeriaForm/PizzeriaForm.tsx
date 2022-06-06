@@ -42,7 +42,7 @@ const PizzeriaForm = (): JSX.Element => {
     newFormData.append("image", formData.image);
     newFormData.append("owner", user.userInfo.id);
     newFormData.append("id", formData.id);
-    debugger;
+
     dispatch(createPizzeriaThunk(newFormData));
     navigate("/home");
     setFormData(blankFields);
