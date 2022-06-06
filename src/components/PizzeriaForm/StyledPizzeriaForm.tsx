@@ -19,6 +19,7 @@ const StyledPizzeriaForm = styled.div`
   margin-bottom: 20px;
   padding-bottom: 20px;
   padding-top: 30px;
+  font-family: "Roboto";
 
   .welcome-form {
     font-style: normal;
@@ -30,7 +31,7 @@ const StyledPizzeriaForm = styled.div`
     padding-bottom: 15px;
     margin-bottom: 15px;
     margin-top: 10px;
-    font-family: "Abadi MT Condensed Light";
+    padding-top: 10px;
   }
 
   form {
@@ -55,16 +56,14 @@ const StyledPizzeriaForm = styled.div`
     margin-bottom: 50px;
     text-align: center;
     margin-bottom: 27px;
-    font-family: "Ubuntu", sans-serif;
+    font-weight: 300;
   }
 
   label {
     margin: 0;
     text-align: center;
     padding-bottom: 10px;
-    font-family: "Abadi MT Condensed Light";
-    font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 22px;
     line-height: 25px;
     letter-spacing: 1px;
@@ -82,8 +81,8 @@ const StyledPizzeriaForm = styled.div`
   }
 
   .create-button {
-    width: 60%;
-    height: 40px;
+    width: 75%;
+    height: 45px;
     justify-content: center;
     display: block;
     color: #fff;
@@ -95,11 +94,10 @@ const StyledPizzeriaForm = styled.div`
     border-radius: 20px;
     transition: 0.2s ease-in;
     cursor: pointer;
-    font-family: "Abadi MT Condensed Light";
-    font-style: normal;
     letter-spacing: 1px;
     text-transform: uppercase;
     line-height: 20px;
+    font-weight: 400;
   }
 
   .edit-button {
@@ -118,8 +116,6 @@ const StyledPizzeriaForm = styled.div`
     border-radius: 20px;
     transition: 0.2s ease-in;
     cursor: pointer;
-    font-family: "Abadi MT Condensed Light";
-    font-style: normal;
     letter-spacing: 1px;
     text-transform: uppercase;
     line-height: 20px;
@@ -127,13 +123,15 @@ const StyledPizzeriaForm = styled.div`
 
   input::placeholder {
     color: #ff5b5b;
+    font-family: "Roboto";
+    margin-top: 20px;
   }
 
   .signup-info {
     position: relative;
     font-size: 14px;
-    top: 90px;
-    font-family: "Abadi MT Condensed Light";
+    top: 10px;
+    cursor: pointer;
   }
 `;
 

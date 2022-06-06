@@ -17,6 +17,10 @@ const StyledHomePage = styled.div`
     letter-spacing: 3px;
     padding-bottom: 5px;
   }
+
+  .content {
+    min-height: calc(100vh - 70px);
+  }
 `;
 
 export default StyledHomePage;
