@@ -32,7 +32,8 @@ const Pizzeria = ({
           </div>
           <div className="pizzeria-info">
             <span>{address}</span>
-            <span>Opening Hours: {timetable}</span>
+            <span>Opening Hours</span>
+            <span>{timetable}</span>
           </div>
         </div>
         <img
