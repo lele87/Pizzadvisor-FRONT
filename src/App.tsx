@@ -5,7 +5,7 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import { Toaster } from "react-hot-toast";
 import Controller from "./components/Controller/Controller";
-import { useAppDispatch } from "./redux/store/hooks";
+import { useAppDispatch, useAppSelector } from "./redux/store/hooks";
 import { loadPizzeriasThunk } from "./redux/thunks/pizzeriathunks";
 import { loginActionCreator } from "./redux/features/userSlice";
 import { DecodeToken } from "./types/types";
@@ -15,6 +15,7 @@ import AntiController from "./components/AntiController/AntiController";
 
 function App() {
   const dispatch = useAppDispatch();
+  const userInfo = useAppSelector((state) => state.user.logged);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -23,7 +24,7 @@ function App() {
       const { name, username, id }: DecodeToken = jwtDecode(token);
       dispatch(loginActionCreator({ name, username, id }));
     }
-  }, [dispatch]);
+  }, [dispatch, userInfo]);
 
   return (
     <>

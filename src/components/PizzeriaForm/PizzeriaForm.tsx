@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch } from "../../redux/store/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { createPizzeriaThunk } from "../../redux/thunks/pizzeriathunks";
 import StyledPizzeriaForm from "./StyledPizzeriaForm";
 
@@ -18,6 +18,7 @@ const PizzeriaForm = (): JSX.Element => {
   const [formData, setFormData] = useState(blankFields);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const user = useAppSelector((state) => state.user);
 
   const changeData = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -39,9 +40,9 @@ const PizzeriaForm = (): JSX.Element => {
     newFormData.append("address", formData.address);
     newFormData.append("specialty", formData.specialty);
     newFormData.append("image", formData.image);
-    newFormData.append("owner", formData.owner);
+    newFormData.append("owner", user.userInfo.id);
     newFormData.append("id", formData.id);
-
+    debugger;
     dispatch(createPizzeriaThunk(newFormData));
     navigate("/home");
     setFormData(blankFields);
