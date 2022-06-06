@@ -10,7 +10,7 @@ describe("Given a PizzeriaList component", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <PizzeriaList />
+            <PizzeriaList key={1} />
           </Provider>
         </BrowserRouter>
       );
