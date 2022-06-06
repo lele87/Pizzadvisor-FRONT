@@ -1,4 +1,5 @@
 import axios from "axios";
+import toast from "react-hot-toast";
 import {
   createPizzeriaActionCreator,
   deletePizzeriaActionCreator,
@@ -46,15 +47,22 @@ export const createPizzeriaThunk =
     const token = localStorage.getItem("token");
 
     try {
+      toast.loading("Loading...");
       const {
         data: { newPizzeria },
       } = await axios.post(url, pizzeriaData, {
         headers: { Authorization: `Bearer ${token}` },
       });
+
+      toast.dismiss();
+      toast.success("You added a pizzeria");
+
       if (newPizzeria) {
         dispatch(createPizzeriaActionCreator(newPizzeria));
       }
     } catch (error: any) {
+      toast.dismiss();
+      toast.error("Something went wrong");
       return error.message;
     }
   };
