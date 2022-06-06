@@ -7,12 +7,14 @@ const HomePage = (): JSX.Element => {
   return (
     <>
       <StyledHomePage>
-        <Header />
-        <div className="info-text">
-          <h2>The Top Pizzerias in Barcelona</h2>
-          <h3>What would you like to eat?</h3>
+        <div className="content">
+          <Header />
+          <div className="info-text">
+            <h2>The Top Pizzerias in Barcelona</h2>
+            <h3>What would you like to eat?</h3>
+          </div>
+          <PizzeriaList />
         </div>
-        <PizzeriaList />
         <Navbar />
       </StyledHomePage>
     </>

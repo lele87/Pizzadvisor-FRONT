@@ -9,6 +9,7 @@ const StyledPizzeria = styled.li`
   margin: 0 auto;
   letter-spacing: 1px;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  font-family: "Roboto";
 
   @media (max-width: 316px) {
     flex-direction: column;
@@ -17,7 +18,7 @@ const StyledPizzeria = styled.li`
   .image-container {
     display: flex;
     height: 100%;
-    width: 50%;
+    width: 45%;
   }
 
   img {
@@ -53,11 +54,10 @@ const StyledPizzeria = styled.li`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 2px;
+    margin-left: 4px;
   }
 
   .pizzeria-name {
-    font-family: "Mukta", sans-serif;
     font-size: 28px;
     position: relative;
     bottom: 20px;
@@ -81,7 +81,6 @@ const StyledPizzeria = styled.li`
   }
 
   .pizzeria-info {
-    font-family: "Mukta", sans-serif;
     display: flex;
     font-size: 25px;
     flex-direction: column;
