@@ -37,7 +37,7 @@ export interface IPizzeria {
   address: string;
   image: string;
   timetable: string;
-  specialty: string[];
+  specialty: string;
   owner: string;
   id: string;
 }

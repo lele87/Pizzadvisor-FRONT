@@ -1,5 +1,5 @@
 import { rest } from "msw";
-import mockPizzerias from "./mockPizzerias";
+import { mockNewPizzeria, mockPizzerias } from "./mockPizzerias";
 
 const mockNewUser = {
   username: "lillo",
@@ -31,4 +31,7 @@ export const handlers = [
       return res(ctx.status(200), ctx.json(mockPizzerias[0].id));
     }
   ),
+  rest.post(`${process.env.REACT_APP_API_URL}pizzerias/`, (req, res, ctx) => {
+    return res(ctx.status(201), ctx.json({ newPizzeria: mockPizzerias[0] }));
+  }),
 ];

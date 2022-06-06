@@ -1,11 +1,16 @@
 import axios from "axios";
-import mockPizzerias from "../../mocks/mockPizzerias";
+import { mockPizzerias, mockNewPizzeria } from "../../mocks/mockPizzerias";
 import { server } from "../../mocks/server";
 import {
+  createPizzeriaActionCreator,
   deletePizzeriaActionCreator,
   loadPizzeriasActionCreator,
 } from "../features/pizzeriasSlice";
-import { deletePizzeriaThunk, loadPizzeriasThunk } from "./pizzeriathunks";
+import {
+  createPizzeriaThunk,
+  deletePizzeriaThunk,
+  loadPizzeriasThunk,
+} from "./pizzeriathunks";
 
 beforeEach(() => server.listen());
 afterEach(() => server.resetHandlers());
@@ -41,6 +46,27 @@ describe("Given a deletePizzeriaThunk function", () => {
 
       await thunk(dispatch);
       expect(dispatch).toHaveBeenCalledWith(deleteAction);
+    });
+  });
+});
+
+describe("Given a createPizzeriaThunk function", () => {
+  describe("When it's called", () => {
+    test("Then it should dispatch the createPizzeriaActionCreator", async () => {
+      const dispatch = jest.fn();
+      const newPizzeria = mockPizzerias[0];
+
+      jest.spyOn(Storage.prototype, "getItem").mockReturnValue("token");
+      axios.get = jest.fn().mockResolvedValue({
+        data: { newPizzeria: mockNewPizzeria },
+        status: 201,
+      });
+
+      const createAction = createPizzeriaActionCreator(newPizzeria);
+      const thunk = createPizzeriaThunk(newPizzeria);
+
+      await thunk(dispatch);
+      expect(dispatch).toHaveBeenCalledWith(createAction);
     });
   });
 });

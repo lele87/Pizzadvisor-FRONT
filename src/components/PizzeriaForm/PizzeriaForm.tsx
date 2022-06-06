@@ -1,4 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { useAppDispatch } from "../../redux/store/hooks";
+import { createPizzeriaThunk } from "../../redux/thunks/pizzeriathunks";
 import StyledPizzeriaForm from "./StyledPizzeriaForm";
 
 const PizzeriaForm = (): JSX.Element => {
@@ -8,26 +10,50 @@ const PizzeriaForm = (): JSX.Element => {
     address: "",
     specialty: "",
     image: "",
+    id: "",
+    owner: "",
   };
 
   const [formData, setFormData] = useState(blankFields);
-  const changeData = (event: {
-    target: { id: string; type: string; files: any; value: string };
-  }) => {
+  const dispatch = useAppDispatch();
+
+  const changeData = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
       [event.target.id]:
         event.target.type === "file"
-          ? event.target.files[0]
+          ? event.target.files?.[0] || ""
           : event.target.value,
     });
+  };
+
+  const submitCreatePizzeria = (event: React.FormEvent) => {
+    event.preventDefault();
+
+    const newFormData = new FormData();
+
+    newFormData.append("name", formData.name);
+    newFormData.append("timetable", formData.timetable);
+    newFormData.append("address", formData.address);
+    newFormData.append("specialty", formData.specialty);
+    newFormData.append("image", formData.image);
+    newFormData.append("owner", formData.owner);
+    newFormData.append("id", formData.id);
+
+    dispatch(createPizzeriaThunk(newFormData));
+    setFormData(blankFields);
   };
 
   return (
     <>
       <StyledPizzeriaForm>
         <span className="welcome-form">Create or Edit a pizzeria</span>
-        <form className="pizzeria-form" autoComplete="off" noValidate>
+        <form
+          className="pizzeria-form"
+          autoComplete="off"
+          noValidate
+          onSubmit={submitCreatePizzeria}
+        >
           <label htmlFor="name">Name</label>
           <input
             id="name"
@@ -63,7 +89,6 @@ const PizzeriaForm = (): JSX.Element => {
           <label htmlFor="image">Image</label>
           <input
             id="image"
-            value={formData.image}
             type="file"
             onChange={changeData}
             className="image-input"
@@ -77,7 +102,6 @@ const PizzeriaForm = (): JSX.Element => {
                 formData.name === ""
               }
               type="submit"
-              onClick={() => {}}
             >
               CREATE PIZZERIA
             </button>
