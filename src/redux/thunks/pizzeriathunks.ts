@@ -1,5 +1,6 @@
 import axios from "axios";
 import {
+  createPizzeriaActionCreator,
   deletePizzeriaActionCreator,
   loadPizzeriasActionCreator,
 } from "../features/pizzeriasSlice";
@@ -33,6 +34,25 @@ export const deletePizzeriaThunk =
       });
       if (status === 200) {
         dispatch(deletePizzeriaActionCreator(id));
+      }
+    } catch (error: any) {
+      return error.message;
+    }
+  };
+
+export const createPizzeriaThunk =
+  (pizzeriaData: any) => async (dispatch: AppDispatch) => {
+    const url: string = `${process.env.REACT_APP_API_URL}pizzerias/`;
+    const token = localStorage.getItem("token");
+
+    try {
+      const {
+        data: { newPizzeria },
+      } = await axios.post(url, pizzeriaData, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (newPizzeria) {
+        dispatch(createPizzeriaActionCreator(newPizzeria));
       }
     } catch (error: any) {
       return error.message;

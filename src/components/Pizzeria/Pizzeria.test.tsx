@@ -21,7 +21,7 @@ describe("Given a Pizzeria component", () => {
         image: "",
         timetable: "15:00-23:00",
         owner: "53454354323646362362",
-        specialty: ["Margherita", "Marinara", "Capricciosa"],
+        specialty: "Margherita",
         id: "1",
       };
 
@@ -45,7 +45,7 @@ describe("Given a Pizzeria component", () => {
           image: "",
           timetable: "15:00-23:00",
           owner: "53454354323646362362",
-          specialty: ["Margherita", "Marinara", "Capricciosa"],
+          specialty: "Margherita",
           id: "1",
         };
 

@@ -17,7 +17,14 @@ const Pizzeria = ({
     <>
       <StyledPizzeria>
         <div className="image-container">
-          <img src={image} alt="neapolitan pizza" />
+          <img
+            src={
+              image.split("/")[0] !== "pizzerias"
+                ? image
+                : `${process.env.REACT_APP_API_URL}${image}`
+            }
+            alt="neapolitan pizza"
+          />
         </div>
         <div className="info-container">
           <div className="pizzeria-name">
