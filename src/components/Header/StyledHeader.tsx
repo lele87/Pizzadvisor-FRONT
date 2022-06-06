@@ -30,9 +30,10 @@ const StyledHeader = styled.div`
     color: black;
     border: none;
     cursor: pointer;
-    font-family: "Mukta", sans-serif;
+    font-family: "Roboto";
     letter-spacing: 2px;
-    font-weight: 700;
+    font-weight: 400;
+    font-size: 18px;
 
     @media (max-width: 320px) {
       width: 70px;
