@@ -53,6 +53,7 @@ const StyledPizzeria = styled.li`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-left: 2px;
   }
 
   .pizzeria-name {
@@ -60,6 +61,7 @@ const StyledPizzeria = styled.li`
     font-size: 28px;
     position: relative;
     bottom: 20px;
+    margin-top: 5px;
 
     @media (min-width: 1280px) {
       font-size: 20px;
@@ -67,6 +69,10 @@ const StyledPizzeria = styled.li`
 
     @media (min-width: 461px) and (max-width: 600px) {
       font-size: 15px;
+    }
+
+    @media (min-width: 601px) and (max-width: 1279px) {
+      font-size: 35px;
     }
 
     @media (max-width: 460px) {
@@ -82,18 +88,23 @@ const StyledPizzeria = styled.li`
     font-weight: 30px;
     position: relative;
     bottom: 30px;
-    gap: 0.7rem;
+    gap: 0.3rem;
+    left: 3px;
 
     @media (min-width: 1280px) {
-      font-size: 12px;
+      font-size: 16px;
     }
 
     @media (min-width: 461px) and (max-width: 600px) {
-      font-size: 10px;
+      font-size: 16px;
+    }
+
+    @media (min-width: 601px) and (max-width: 1279px) {
+      font-size: 30px;
     }
 
     @media (max-width: 460px) {
-      font-size: 12px;
+      font-size: 16px;
     }
   }
 

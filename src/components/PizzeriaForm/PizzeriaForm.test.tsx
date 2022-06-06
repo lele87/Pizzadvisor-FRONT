@@ -81,4 +81,26 @@ describe("Given a PizzeriaForm component", () => {
       expect(editButton).toBeDisabled();
     });
   });
+  describe("When invoked and the user clicks on the create pizzeria button", () => {
+    test("Then the dispatch and the setFormData should be invoked", () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <PizzeriaForm />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const inputs = screen.getAllByRole("textbox");
+      const button = screen.getByRole("button", { name: "CREATE PIZZERIA" });
+
+      inputs.forEach((input) => {
+        userEvent.type(input, "hola");
+      });
+
+      userEvent.click(button);
+
+      expect(mockDispatch).toHaveBeenCalled();
+    });
+  });
 });

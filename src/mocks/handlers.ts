@@ -1,5 +1,5 @@
 import { rest } from "msw";
-import { mockNewPizzeria, mockPizzerias } from "./mockPizzerias";
+import { mockPizzerias } from "./mockPizzerias";
 
 const mockNewUser = {
   username: "lillo",
@@ -22,7 +22,7 @@ export const handlers = [
   rest.get(
     `${process.env.REACT_APP_API_URL}pizzerias/list`,
     (req, res, ctx) => {
-      return res(ctx.status(200), ctx.json(mockPizzerias));
+      return res(ctx.status(200), ctx.json({ mockPizzerias }));
     }
   ),
   rest.delete(
