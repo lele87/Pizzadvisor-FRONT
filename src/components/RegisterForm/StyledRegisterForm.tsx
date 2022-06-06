@@ -15,6 +15,7 @@ const StyledRegisterForm = styled.div`
   background-color: #fafafa;
   letter-spacing: 1px;
   margin: 0 auto;
+  font-family: "Roboto";
 
   .welcome {
     font-style: normal;
@@ -24,7 +25,7 @@ const StyledRegisterForm = styled.div`
     letter-spacing: 1px;
     color: #2d2a2a;
     padding-bottom: 40px;
-    font-family: "Abadi MT Condensed Light";
+    font-weight: 300;
   }
 
   form {
@@ -37,7 +38,7 @@ const StyledRegisterForm = styled.div`
 
   input {
     color: rgb(38, 50, 56);
-    font-size: 14px;
+    font-size: 19px;
     letter-spacing: 1px;
     background: rgba(136, 126, 126, 0.04);
     padding: 10px 20px;
@@ -49,16 +50,14 @@ const StyledRegisterForm = styled.div`
     margin-bottom: 50px;
     text-align: center;
     margin-bottom: 27px;
-    font-family: "Ubuntu", sans-serif;
+    font-weight: 300;
   }
 
   label {
     margin: 0;
     text-align: center;
     padding-bottom: 10px;
-    font-family: "Abadi MT Condensed Light";
-    font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 22px;
     line-height: 25px;
     letter-spacing: 1px;
@@ -76,44 +75,18 @@ const StyledRegisterForm = styled.div`
   }
 
   .signup {
-    width: 60%;
-    height: 40px;
+    width: 75%;
+    height: 45px;
     justify-content: center;
     display: block;
     color: #fff;
     background: #ff5b5b;
     font-size: 1em;
     font-weight: 400;
-    margin-top: 20px;
     border: none;
     border-radius: 20px;
     transition: 0.2s ease-in;
     cursor: pointer;
-    font-family: "Abadi MT Condensed Light";
-    font-style: normal;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    line-height: 20px;
-  }
-
-  .button-secondary {
-    width: 60%;
-    height: 40px;
-    margin: 10px auto;
-    justify-content: center;
-    display: block;
-    color: #fff;
-    background: black;
-    font-size: 1em;
-    font-weight: 400;
-    margin-top: 20px;
-    outline: none;
-    border: none;
-    border-radius: 20px;
-    transition: 0.2s ease-in;
-    cursor: pointer;
-    font-family: "Abadi MT Condensed Light";
-    font-style: normal;
     letter-spacing: 1px;
     text-transform: uppercase;
     line-height: 20px;
@@ -121,13 +94,20 @@ const StyledRegisterForm = styled.div`
 
   input::placeholder {
     color: #ff5b5b;
+    font-family: "Roboto";
   }
 
   .signup-info {
     position: relative;
-    font-size: 14px;
-    top: 90px;
-    font-family: "Abadi MT Condensed Light";
+    font-size: 18px;
+    margin-top: 20px;
+  }
+
+  .change-form__link {
+    position: relative;
+    top: 10px;
+    font-size: 20px;
+    cursor: pointer;
   }
 `;
 

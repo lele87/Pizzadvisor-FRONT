@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { loginThunk } from "../../redux/thunks/userThunks";
 import StyledLoginForm from "./StyledLoginForm";
@@ -29,10 +29,6 @@ const LoginForm = (): JSX.Element => {
       navigate("/home");
     }
   }, [navigate, userInfo]);
-
-  const navigateToRegister = () => {
-    navigate("/register");
-  };
 
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
@@ -76,9 +72,9 @@ const LoginForm = (): JSX.Element => {
               LOGIN
             </button>
             <span className="signup-info">Don't you have an account?</span>
-            <button className="button-secondary" onClick={navigateToRegister}>
-              SIGN UP
-            </button>
+            <NavLink to={"/register"} style={{ textDecoration: "none" }}>
+              <span className="change-form__link">Sign Up</span>
+            </NavLink>
           </div>
         </form>
       </StyledLoginForm>

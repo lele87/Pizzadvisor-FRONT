@@ -14,9 +14,7 @@ jest.mock("react-redux", () => ({
 
 describe("Given a LoginForm Component", () => {
   describe("When it's invoked", () => {
-    test("Then it should render 2 input fields and 2 buttons", () => {
-      const expectedButtons = 2;
-
+    test("Then it should render 2 input fields and 1 button", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -27,12 +25,11 @@ describe("Given a LoginForm Component", () => {
 
       const usernameInput = screen.getByLabelText("Username");
       const passwordInput = screen.getByLabelText("Password");
-      const buttons = screen.getAllByRole("button");
+      const button = screen.getByRole("button");
 
       expect(usernameInput).toBeInTheDocument();
       expect(passwordInput).toBeInTheDocument();
-
-      expect(buttons).toHaveLength(expectedButtons);
+      expect(button).toBeInTheDocument();
     });
   });
   describe("When the user types the username 'lelo' in the input field", () => {
