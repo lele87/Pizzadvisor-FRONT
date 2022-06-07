@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
-import { deletePizzeriaThunk } from "../../redux/thunks/pizzeriathunks";
+import { deletePizzeriaThunk } from "../../redux/thunks/pizzeriasThunks";
 import { IPizzeria } from "../../types/types";
 import StyledPizzeria from "./StyledPizzeria";
 

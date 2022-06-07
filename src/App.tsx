@@ -6,7 +6,7 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import { Toaster } from "react-hot-toast";
 import Controller from "./components/Controller/Controller";
 import { useAppDispatch, useAppSelector } from "./redux/store/hooks";
-import { loadPizzeriasThunk } from "./redux/thunks/pizzeriathunks";
+import { loadPizzeriasThunk } from "./redux/thunks/pizzeriasThunks";
 import { loginActionCreator } from "./redux/features/userSlice";
 import { DecodeToken } from "./types/types";
 import jwtDecode from "jwt-decode";

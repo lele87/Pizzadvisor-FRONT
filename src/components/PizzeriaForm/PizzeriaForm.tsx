@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
-import { createPizzeriaThunk } from "../../redux/thunks/pizzeriathunks";
+import { createPizzeriaThunk } from "../../redux/thunks/pizzeriasThunks";
 import StyledPizzeriaForm from "./StyledPizzeriaForm";
 
 const PizzeriaForm = (): JSX.Element => {
@@ -117,7 +117,6 @@ const PizzeriaForm = (): JSX.Element => {
                 formData.name === ""
               }
               type="submit"
-              onClick={() => {}}
             >
               EDIT PIZZERIA
             </button>
