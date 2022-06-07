@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
@@ -12,6 +12,7 @@ import { DecodeToken } from "./types/types";
 import jwtDecode from "jwt-decode";
 import PizzeriaFormPage from "./pages/PizzeriaFormPage.tsx/PizzeriaFormPage";
 import AntiController from "./components/AntiController/AntiController";
+import EditPizzeriaPage from "./pages/EditPizzeriaPage.tsx/EditPizzeriaPage";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -61,6 +62,10 @@ function App() {
               <PizzeriaFormPage />
             </Controller>
           }
+        />
+        <Route
+          path="/editpizzeria/:idPizzeria"
+          element={<EditPizzeriaPage />}
         />
       </Routes>
       <Toaster

@@ -15,8 +15,9 @@ const pizzeriaSlice = createSlice({
   name: "pizzeria",
   initialState,
   reducers: {
-    loadPizzeria: (pizzeria, action: PayloadAction<IPizzeria>) =>
-      action.payload,
+    loadPizzeria: (pizzeria, action: PayloadAction<IPizzeria>) => ({
+      ...action.payload,
+    }),
   },
 });
 

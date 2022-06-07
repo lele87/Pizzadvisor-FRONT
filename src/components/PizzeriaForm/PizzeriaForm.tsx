@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { createPizzeriaThunk } from "../../redux/thunks/pizzeriasThunks";
@@ -20,6 +20,8 @@ const PizzeriaForm = (): JSX.Element => {
   const navigate = useNavigate();
   const user = useAppSelector((state) => state.user);
 
+  const pizzeria = useAppSelector((state) => state.pizzeria);
+
   const changeData = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
@@ -29,6 +31,12 @@ const PizzeriaForm = (): JSX.Element => {
           : event.target.value,
     });
   };
+
+  useEffect(() => {
+    if (pizzeria) {
+      setFormData(pizzeria);
+    }
+  }, [pizzeria]);
 
   const submitCreatePizzeria = (event: React.FormEvent) => {
     event.preventDefault();
