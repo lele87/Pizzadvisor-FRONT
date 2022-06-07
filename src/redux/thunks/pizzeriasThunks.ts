@@ -74,12 +74,14 @@ export const editPizzeriaThunk =
     const token = localStorage.getItem("token");
 
     try {
-      const { status } = await axios.patch(url, pizzeriaData, {
+      const {
+        data: { updatedPizzeria },
+      } = await axios.patch(url, pizzeriaData, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
-      if (status === 201) {
-        dispatch(editPizzeriaActionCreator(pizzeriaData));
+      if (updatedPizzeria) {
+        dispatch(editPizzeriaActionCreator(updatedPizzeria));
       }
     } catch (error: any) {
       return error.message;
