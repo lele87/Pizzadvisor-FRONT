@@ -1,8 +1,8 @@
 import { mockPizzerias } from "../../mocks/mockPizzerias";
 import { server } from "../../mocks/server";
 import { loadPizzeriaActionCreator } from "../features/pizzeriaSlice";
-import { loadPizzeriaThunk } from "./pizzeriaThunks";
 import axios from "axios";
+import { loadPizzeriaThunk } from "./pizzeriaThunks";
 
 beforeEach(() => server.listen());
 afterEach(() => server.resetHandlers());
