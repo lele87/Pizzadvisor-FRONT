@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import {
   createPizzeriaActionCreator,
   deletePizzeriaActionCreator,
+  editPizzeriaActionCreator,
   loadPizzeriasActionCreator,
 } from "../features/pizzeriasSlice";
 import { AppDispatch } from "../store";
@@ -63,6 +64,26 @@ export const createPizzeriaThunk =
     } catch (error: any) {
       toast.dismiss();
       toast.error("Something went wrong");
+      return error.message;
+    }
+  };
+
+export const editPizzeriaThunk =
+  (id: string, pizzeriaData: any) => async (dispatch: AppDispatch) => {
+    const url: string = `${process.env.REACT_APP_API_URL}pizzerias/${id}`;
+    const token = localStorage.getItem("token");
+
+    try {
+      const {
+        data: { updatedPizzeria },
+      } = await axios.patch(url, pizzeriaData, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      if (updatedPizzeria) {
+        dispatch(editPizzeriaActionCreator(updatedPizzeria));
+      }
+    } catch (error: any) {
       return error.message;
     }
   };

@@ -10,7 +10,7 @@ import {
   createPizzeriaThunk,
   deletePizzeriaThunk,
   loadPizzeriasThunk,
-} from "./pizzeriathunks";
+} from "./pizzeriasThunks";
 
 beforeEach(() => server.listen());
 afterEach(() => server.resetHandlers());

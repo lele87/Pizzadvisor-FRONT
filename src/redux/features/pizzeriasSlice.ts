@@ -16,6 +16,10 @@ const pizzeriasSlice = createSlice({
       ...pizzerias,
       action.payload,
     ],
+    editPizzeria: (pizzerias, action: PayloadAction<IPizzeria>) =>
+      pizzerias.map((pizzeria) =>
+        pizzeria.id === action.payload.id ? action.payload : pizzeria
+      ),
   },
 });
 
@@ -23,6 +27,7 @@ export const {
   loadPizzerias: loadPizzeriasActionCreator,
   deletePizzeria: deletePizzeriaActionCreator,
   createPizzeria: createPizzeriaActionCreator,
+  editPizzeria: editPizzeriaActionCreator,
 } = pizzeriasSlice.actions;
 
 export default pizzeriasSlice.reducer;

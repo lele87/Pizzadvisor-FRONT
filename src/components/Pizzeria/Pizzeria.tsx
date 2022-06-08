@@ -1,5 +1,6 @@
+import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
-import { deletePizzeriaThunk } from "../../redux/thunks/pizzeriathunks";
+import { deletePizzeriaThunk } from "../../redux/thunks/pizzeriasThunks";
 import { IPizzeria } from "../../types/types";
 import StyledPizzeria from "./StyledPizzeria";
 
@@ -13,6 +14,11 @@ const Pizzeria = ({
     dispatch(deletePizzeriaThunk(id));
   };
   const user = useAppSelector((state) => state.user);
+  const navigate = useNavigate();
+
+  const navigateToEdit = (id: string): void => {
+    navigate(`/editpizzeria/${id}`);
+  };
 
   return (
     <>
@@ -37,6 +43,7 @@ const Pizzeria = ({
             <span>{timetable}</span>
           </div>
         </div>
+        <button onClick={() => navigateToEdit(id)}>EDIT</button>
         {user.userInfo.id === owner ? (
           <img
             className="delete-icon"
