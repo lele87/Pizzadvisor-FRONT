@@ -1,7 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { blankStateActionCreator } from "../../redux/features/pizzeriaSlice";
+import { useAppDispatch } from "../../redux/store/hooks";
 import StyledNavbar from "./StyledNavbar";
 
 const Navbar = (): JSX.Element => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  const createPizzeria = () => {
+    dispatch(blankStateActionCreator());
+    navigate("/createpizzeria");
+  };
+
   return (
     <>
       <StyledNavbar>
@@ -14,13 +24,11 @@ const Navbar = (): JSX.Element => {
               />
             </Link>
           </li>
-          <li>
-            <Link to="/createpizzeria">
-              <img
-                src="/images/plus-solid.svg"
-                alt="Redirect to create a pizzeria link plus"
-              />
-            </Link>
+          <li onClick={createPizzeria}>
+            <img
+              src="/images/plus-solid.svg"
+              alt="Redirect to create a pizzeria link plus"
+            />
           </li>
           <li>
             <Link to="/">
