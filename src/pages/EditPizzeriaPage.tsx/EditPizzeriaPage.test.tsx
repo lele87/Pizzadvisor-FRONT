@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import PizzeriaForm from "../../components/PizzeriaForm/PizzeriaForm";
 import store from "../../redux/store";
+import EditPizzeriaPage from "./EditPizzeriaPage";
 
 const mockDispatch = jest.fn();
 
@@ -20,7 +21,7 @@ describe("Given an EditPizzeriaPage", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <PizzeriaForm />
+            <EditPizzeriaPage />
           </Provider>
         </BrowserRouter>
       );
