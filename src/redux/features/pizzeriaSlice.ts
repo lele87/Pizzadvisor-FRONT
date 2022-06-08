@@ -18,10 +18,13 @@ const pizzeriaSlice = createSlice({
     loadPizzeria: (pizzeria, action: PayloadAction<IPizzeria>) => ({
       ...action.payload,
     }),
+    blankState: () => initialState,
   },
 });
 
-export const { loadPizzeria: loadPizzeriaActionCreator } =
-  pizzeriaSlice.actions;
+export const {
+  loadPizzeria: loadPizzeriaActionCreator,
+  blankState: blankStateActionCreator,
+} = pizzeriaSlice.actions;
 
 export default pizzeriaSlice.reducer;

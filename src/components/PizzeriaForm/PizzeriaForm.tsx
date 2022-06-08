@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { blankStateActionCreator } from "../../redux/features/pizzeriaSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import {
   createPizzeriaThunk,
@@ -58,9 +59,10 @@ const PizzeriaForm = (): JSX.Element => {
     location.pathname === "/createpizzeria"
       ? dispatch(createPizzeriaThunk(newFormData))
       : dispatch(editPizzeriaThunk(pizzeriaInfo.id as string, newFormData));
-    navigate("/home");
 
+    dispatch(blankStateActionCreator());
     setFormData(blankFields);
+    navigate("/home");
   };
 
   return (
