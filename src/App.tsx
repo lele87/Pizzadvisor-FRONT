@@ -56,7 +56,7 @@ function App() {
           }
         />
         <Route
-          path="/form"
+          path="/createpizzeria"
           element={
             <Controller>
               <PizzeriaFormPage />

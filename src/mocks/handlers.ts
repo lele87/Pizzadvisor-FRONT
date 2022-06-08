@@ -40,4 +40,20 @@ export const handlers = [
       return res(ctx.status(200), ctx.json({ data: mockPizzerias[0] }));
     }
   ),
+  rest.patch(`${process.env.REACT_APP_API_URL}pizzerias/1`, (req, res, ctx) => {
+    return res(
+      ctx.status(201),
+      ctx.json({
+        updatedPizzeria: {
+          name: "NAP",
+          address: "La Rambla",
+          timetable: "15-24",
+          image: "image3",
+          owner: "629684abc46cf477e7ca7008",
+          specialty: "Marinara",
+          id: "1",
+        },
+      })
+    );
+  }),
 ];

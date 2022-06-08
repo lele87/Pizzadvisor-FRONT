@@ -3,6 +3,7 @@ import { IPizzeria } from "../../types/types";
 import pizzeriasSlice, {
   createPizzeriaActionCreator,
   deletePizzeriaActionCreator,
+  editPizzeriaActionCreator,
   loadPizzeriasActionCreator,
 } from "./pizzeriasSlice";
 
@@ -61,6 +62,31 @@ describe("Given a createPizzeria reducer", () => {
       const pizzeriaStatus = pizzeriasSlice(initialState, createAction);
 
       expect(pizzeriaStatus).toHaveLength(expectedLength);
+    });
+  });
+});
+
+describe("Given a edite Pizzeria Reducer", () => {
+  describe("When it receives an initial state with an array of 2 pizzerias and a edit pizzeria action with the updated pizzeria", () => {
+    test("Then it should return a new pizzeria state with the array with the updated pizzeria", () => {
+      const initialStatus: IPizzeria[] = [mockPizzerias[0], mockPizzerias[1]];
+
+      const updatedPizzeria = {
+        name: "Pizza Pazza 1",
+        address: "Carrer Ample 1",
+        timetable: "15-23",
+        image: "image",
+        owner: "629684abc46cf477e7ca7009",
+        specialty: "Margherita",
+        id: "1",
+      };
+      const expectedNewState = [updatedPizzeria, mockPizzerias[1]];
+
+      const editPizzeriaAction = editPizzeriaActionCreator(updatedPizzeria);
+
+      const newState = pizzeriasSlice(initialStatus, editPizzeriaAction);
+
+      expect(newState).toEqual(expectedNewState);
     });
   });
 });

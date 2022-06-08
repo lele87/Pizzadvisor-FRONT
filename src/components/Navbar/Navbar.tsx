@@ -15,7 +15,7 @@ const Navbar = (): JSX.Element => {
             </Link>
           </li>
           <li>
-            <Link to="/form">
+            <Link to="/createpizzeria">
               <img
                 src="/images/plus-solid.svg"
                 alt="Redirect to create a pizzeria link plus"

@@ -80,10 +80,15 @@ export const editPizzeriaThunk =
         headers: { Authorization: `Bearer ${token}` },
       });
 
+      toast.dismiss();
+      toast.success("You edited a pizzeria");
+
       if (updatedPizzeria) {
         dispatch(editPizzeriaActionCreator(updatedPizzeria));
       }
     } catch (error: any) {
+      toast.dismiss();
+      toast.error("Something went wrong");
       return error.message;
     }
   };
