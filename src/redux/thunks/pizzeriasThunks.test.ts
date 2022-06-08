@@ -4,11 +4,13 @@ import { server } from "../../mocks/server";
 import {
   createPizzeriaActionCreator,
   deletePizzeriaActionCreator,
+  editPizzeriaActionCreator,
   loadPizzeriasActionCreator,
 } from "../features/pizzeriasSlice";
 import {
   createPizzeriaThunk,
   deletePizzeriaThunk,
+  editPizzeriaThunk,
   loadPizzeriasThunk,
 } from "./pizzeriasThunks";
 
@@ -67,6 +69,47 @@ describe("Given a createPizzeriaThunk function", () => {
 
       await thunk(dispatch);
       expect(dispatch).toHaveBeenCalledWith(createAction);
+    });
+  });
+});
+
+describe("Given an editPizzeriaThunk function", () => {
+  describe("When it's called with an id of a pizzeria to edit and an updated pizzeria", () => {
+    test("Then it should dispatch the editPizzeriaActionCreator with the new updated pizzeria", async () => {
+      const dispatch = jest.fn();
+
+      const idToEdit = "1";
+      const pizzeriaData = {
+        name: "NAP",
+        address: "La Rambla",
+        timetable: "15-24",
+        image: "image3",
+        owner: "629684abc46cf477e7ca7008",
+        specialty: "Marinara",
+        id: "1",
+      };
+
+      jest.spyOn(Storage.prototype, "getItem").mockReturnValue("token");
+      axios.get = jest.fn().mockResolvedValue({
+        data: {
+          name: "NAP 1",
+          address: "La Rambla",
+          timetable: "15-24",
+          image: "image3",
+          owner: "629684abc46cf477e7ca7008",
+          specialty: "Marinara",
+          id: "1",
+        },
+        status: 200,
+      });
+
+      const editPizzeriaAction = editPizzeriaActionCreator(pizzeriaData);
+
+      const thunk = editPizzeriaThunk(idToEdit, pizzeriaData);
+
+      await thunk(dispatch);
+
+      expect(dispatch).toHaveBeenCalledWith(editPizzeriaAction);
     });
   });
 });
