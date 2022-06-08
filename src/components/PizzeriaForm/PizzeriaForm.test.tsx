@@ -14,9 +14,7 @@ jest.mock("react-redux", () => ({
 
 describe("Given a PizzeriaForm component", () => {
   describe("When it's invoked", () => {
-    test("Then it should render 5 input fields and 2 buttons", () => {
-      const expectedButtons = 2;
-
+    test("Then it should render 5 input fields and 1 button", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -30,7 +28,7 @@ describe("Given a PizzeriaForm component", () => {
       const timetableInput = screen.getByLabelText("Opening Hours");
       const specialtyInput = screen.getByLabelText("Special Pizza");
       const imageInput = screen.getByLabelText("Image");
-      const buttons = screen.getAllByRole("button");
+      const button = screen.getByRole("button");
 
       expect(nameInput).toBeInTheDocument();
       expect(addressInput).toBeInTheDocument();
@@ -38,7 +36,7 @@ describe("Given a PizzeriaForm component", () => {
       expect(specialtyInput).toBeInTheDocument();
       expect(imageInput).toBeInTheDocument();
 
-      expect(buttons).toHaveLength(expectedButtons);
+      expect(button).toBeInTheDocument();
     });
   });
   describe("When the user types the name 'lelo' in the input field", () => {
@@ -61,7 +59,7 @@ describe("Given a PizzeriaForm component", () => {
     });
   });
   describe("When the user doesn't type any address, name or timetable", () => {
-    test("Then the create pizzeria button and edit pizzeria button should be disabled", () => {
+    test("Then the edit pizzeria button should be disabled", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -70,18 +68,14 @@ describe("Given a PizzeriaForm component", () => {
         </BrowserRouter>
       );
 
-      const createButton = screen.getByRole("button", {
-        name: "CREATE PIZZERIA",
-      });
       const editButton = screen.getByRole("button", {
         name: "EDIT PIZZERIA",
       });
 
-      expect(createButton).toBeDisabled();
       expect(editButton).toBeDisabled();
     });
   });
-  describe("When invoked and the user clicks on the create pizzeria button", () => {
+  describe("When invoked and the user clicks on the edit pizzeria button", () => {
     test("Then the dispatch and the setFormData should be invoked", () => {
       render(
         <BrowserRouter>
@@ -92,7 +86,7 @@ describe("Given a PizzeriaForm component", () => {
       );
 
       const inputs = screen.getAllByRole("textbox");
-      const button = screen.getByRole("button", { name: "CREATE PIZZERIA" });
+      const button = screen.getByRole("button", { name: "EDIT PIZZERIA" });
 
       inputs.forEach((input) => {
         userEvent.type(input, "hola");

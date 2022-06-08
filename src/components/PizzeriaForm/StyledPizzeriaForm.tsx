@@ -80,7 +80,7 @@ const StyledPizzeriaForm = styled.div`
     align-items: center;
   }
 
-  .create-button {
+  .submit-button {
     width: 75%;
     height: 45px;
     justify-content: center;
@@ -90,6 +90,7 @@ const StyledPizzeriaForm = styled.div`
     font-size: 1em;
     font-weight: 400;
     margin-top: 20px;
+    margin-bottom: 20px;
     border: none;
     border-radius: 20px;
     transition: 0.2s ease-in;
@@ -98,27 +99,6 @@ const StyledPizzeriaForm = styled.div`
     text-transform: uppercase;
     line-height: 20px;
     font-weight: 400;
-  }
-
-  .edit-button {
-    width: 60%;
-    height: 40px;
-    margin: 10px auto;
-    justify-content: center;
-    display: block;
-    color: #fff;
-    background: black;
-    font-size: 1em;
-    font-weight: 400;
-    margin-top: 20px;
-    outline: none;
-    border: none;
-    border-radius: 20px;
-    transition: 0.2s ease-in;
-    cursor: pointer;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    line-height: 20px;
   }
 
   input::placeholder {

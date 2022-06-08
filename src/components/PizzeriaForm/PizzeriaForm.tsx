@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
-import { createPizzeriaThunk } from "../../redux/thunks/pizzeriasThunks";
+import {
+  createPizzeriaThunk,
+  editPizzeriaThunk,
+} from "../../redux/thunks/pizzeriasThunks";
 import StyledPizzeriaForm from "./StyledPizzeriaForm";
 
 const PizzeriaForm = (): JSX.Element => {
@@ -19,8 +22,9 @@ const PizzeriaForm = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const user = useAppSelector((state) => state.user);
+  const location = useLocation();
 
-  const pizzeria = useAppSelector((state) => state.pizzeria);
+  const pizzeriaInfo = useAppSelector((state) => state.pizzeria);
 
   const changeData = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -33,10 +37,10 @@ const PizzeriaForm = (): JSX.Element => {
   };
 
   useEffect(() => {
-    if (pizzeria) {
-      setFormData(pizzeria);
+    if (pizzeriaInfo) {
+      setFormData(pizzeriaInfo);
     }
-  }, [pizzeria]);
+  }, [dispatch, pizzeriaInfo]);
 
   const submitCreatePizzeria = (event: React.FormEvent) => {
     event.preventDefault();
@@ -51,15 +55,18 @@ const PizzeriaForm = (): JSX.Element => {
     newFormData.append("owner", user.userInfo.id);
     newFormData.append("id", formData.id);
 
-    dispatch(createPizzeriaThunk(newFormData));
+    location.pathname === "/createpizzeria"
+      ? dispatch(createPizzeriaThunk(newFormData))
+      : dispatch(editPizzeriaThunk(pizzeriaInfo.id as string, newFormData));
     navigate("/home");
+
     setFormData(blankFields);
   };
 
   return (
     <>
       <StyledPizzeriaForm>
-        <span className="welcome-form">Create or Edit a pizzeria</span>
+        <span className="welcome-form">Pizzeria Form</span>
         <form
           className="pizzeria-form"
           autoComplete="off"
@@ -107,7 +114,7 @@ const PizzeriaForm = (): JSX.Element => {
           />
           <div className="form-buttons">
             <button
-              className="create-button"
+              className="submit-button"
               disabled={
                 formData.address === "" ||
                 formData.timetable === "" ||
@@ -115,18 +122,9 @@ const PizzeriaForm = (): JSX.Element => {
               }
               type="submit"
             >
-              CREATE PIZZERIA
-            </button>
-            <button
-              className="edit-button"
-              disabled={
-                formData.address === "" ||
-                formData.timetable === "" ||
-                formData.name === ""
-              }
-              type="submit"
-            >
-              EDIT PIZZERIA
+              {location.pathname === "/createpizzeria"
+                ? "CREATE PIZZERIA"
+                : "EDIT PIZZERIA"}
             </button>
           </div>
         </form>
