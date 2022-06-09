@@ -5,6 +5,7 @@ const initialState: IPizzeria = {
   name: "",
   address: "",
   image: "",
+  imageBackup: "",
   timetable: "",
   specialty: "",
   owner: "",

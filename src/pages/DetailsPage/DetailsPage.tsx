@@ -51,16 +51,18 @@ const DetailsPage = ({
                 <span>Special Pizza</span>
                 <span>{specialty}</span>
               </div>
-              <iframe
-                title="map"
-                width="450"
-                height="250"
-                frameBorder="0"
-                style={{ border: 0 }}
-                referrerPolicy="no-referrer-when-downgrade"
-                src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_API_KEY}&q=${address}`}
-                allowFullScreen
-              ></iframe>
+              <div className="map-container">
+                <iframe
+                  title="map"
+                  width="300"
+                  height="250"
+                  frameBorder="0"
+                  style={{ border: 0 }}
+                  referrerPolicy="no-referrer-when-downgrade"
+                  src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_API_KEY}&q=${address}`}
+                  allowFullScreen
+                ></iframe>
+              </div>
             </div>
             <button
               className="submit-button"

@@ -30,12 +30,14 @@ export interface DecodeToken {
   name: string;
   username: string;
   id: string;
+  imageBackup: string;
 }
 
 export interface IPizzeria {
   name: string;
   address: string;
   image: string;
+  imageBackup?: string;
   timetable: string;
   specialty: string;
   owner: string;

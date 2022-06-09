@@ -81,8 +81,8 @@ const StyledDetailsPage = styled.div`
     font-weight: 400;
   }
 
-  iframe {
-    width: 300px;
+  .map-container {
+    width: 100%;
     height: 250px;
     border: 0;
   }
