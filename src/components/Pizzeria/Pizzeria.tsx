@@ -22,10 +22,7 @@ const Pizzeria = ({
 
   return (
     <>
-      <StyledPizzeria
-        className="pizza-container"
-        onClick={() => navigateToDetails(id)}
-      >
+      <StyledPizzeria className="pizza-container">
         <div className="image-container">
           <img
             src={
@@ -44,18 +41,26 @@ const Pizzeria = ({
             <span>{address}</span>
             <span>Opening Hours</span>
             <span>{timetable}</span>
+            <div className="icons">
+              <img
+                className="info-icon"
+                src="/images/circle-info-solid.svg"
+                alt="Circle Info to navigate to pizzeria details page"
+                onClick={() => navigateToDetails(id)}
+              />
+              {user.userInfo.id === owner ? (
+                <img
+                  className="delete-icon"
+                  src="/images/circle-xmark-solid.svg"
+                  alt="Circle X to delete pizzeria"
+                  onClick={deletePizzeria}
+                />
+              ) : (
+                ""
+              )}
+            </div>
           </div>
         </div>
-        {user.userInfo.id === owner ? (
-          <img
-            className="delete-icon"
-            src="/images/circle-xmark-solid.svg"
-            alt="Circle X to delete pizzeria"
-            onClick={deletePizzeria}
-          />
-        ) : (
-          ""
-        )}
       </StyledPizzeria>
     </>
   );
