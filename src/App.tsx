@@ -13,10 +13,12 @@ import jwtDecode from "jwt-decode";
 import PizzeriaFormPage from "./pages/PizzeriaFormPage.tsx/PizzeriaFormPage";
 import AntiController from "./components/AntiController/AntiController";
 import EditPizzeriaPage from "./pages/EditPizzeriaPage.tsx/EditPizzeriaPage";
+import DetailsPage from "./pages/DetailsPage/DetailsPage";
 
 function App() {
   const dispatch = useAppDispatch();
   const userInfo = useAppSelector((state) => state.user.logged);
+  const pizzeria = useAppSelector((state) => state.pizzeria);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -66,6 +68,10 @@ function App() {
         <Route
           path="/editpizzeria/:idPizzeria"
           element={<EditPizzeriaPage />}
+        />
+        <Route
+          path="/pizzerias/:idPizzeria"
+          element={<DetailsPage pizzeria={pizzeria} />}
         />
       </Routes>
       <Toaster
