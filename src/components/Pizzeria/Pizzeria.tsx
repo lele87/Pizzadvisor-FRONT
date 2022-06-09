@@ -16,13 +16,16 @@ const Pizzeria = ({
   const user = useAppSelector((state) => state.user);
   const navigate = useNavigate();
 
-  const navigateToEdit = (id: string): void => {
-    navigate(`/editpizzeria/${id}`);
+  const navigateToDetails = (id: string): void => {
+    navigate(`/pizzerias/${id}`);
   };
 
   return (
     <>
-      <StyledPizzeria>
+      <StyledPizzeria
+        className="pizza-container"
+        onClick={() => navigateToDetails(id)}
+      >
         <div className="image-container">
           <img
             src={
@@ -43,7 +46,6 @@ const Pizzeria = ({
             <span>{timetable}</span>
           </div>
         </div>
-        <button onClick={() => navigateToEdit(id)}>EDIT</button>
         {user.userInfo.id === owner ? (
           <img
             className="delete-icon"
