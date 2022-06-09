@@ -4,6 +4,7 @@ const StyledPizzeria = styled.li`
   display: flex;
   align-items: center;
   width: 90%;
+  height: 210px;
   background-color: #fafafa;
   border-radius: 4rem;
   margin: 0 auto;
@@ -23,7 +24,8 @@ const StyledPizzeria = styled.li`
 
   img {
     position: relative;
-    bottom: 10px;
+    bottom: 3.9px;
+    right: 1px;
     width: 300px;
     height: 300px;
     border-radius: 50%;
@@ -55,13 +57,14 @@ const StyledPizzeria = styled.li`
     flex-direction: column;
     justify-content: center;
     margin-left: 4px;
+    margin-top: 20px;
   }
 
   .pizzeria-name {
     font-size: 28px;
     position: relative;
     bottom: 20px;
-    margin-top: 5px;
+    margin-left: 5px;
 
     @media (min-width: 1280px) {
       font-size: 20px;
@@ -87,8 +90,8 @@ const StyledPizzeria = styled.li`
     font-weight: 30px;
     position: relative;
     bottom: 30px;
-    gap: 0.3rem;
-    left: 3px;
+    gap: 0.5rem;
+    margin-left: 5px;
 
     @media (min-width: 1280px) {
       font-size: 16px;
@@ -107,12 +110,20 @@ const StyledPizzeria = styled.li`
     }
   }
 
+  .icons {
+    padding-top: 8px;
+    display: flex;
+    gap: 6px;
+  }
+
   .delete-icon {
     width: 30px;
     height: 30px;
-    position: relative;
-    bottom: 60px;
-    right: 10px;
+  }
+
+  .info-icon {
+    width: 30px;
+    height: 30px;
   }
 `;
 
