@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/iframe-has-title */
 import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Header from "../../components/Header/Header";
@@ -53,6 +52,7 @@ const DetailsPage = ({
                 <span>{specialty}</span>
               </div>
               <iframe
+                title="map"
                 width="450"
                 height="250"
                 frameBorder="0"
