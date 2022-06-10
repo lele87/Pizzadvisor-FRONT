@@ -20,6 +20,8 @@ const pizzeriasSlice = createSlice({
       pizzerias.map((pizzeria) =>
         pizzeria.id === action.payload.id ? action.payload : pizzeria
       ),
+    filterPizzerias: (pizzerias, action: PayloadAction<string>) =>
+      pizzerias.filter((pizzeria) => pizzeria.specialty === "string"),
   },
 });
 
@@ -28,6 +30,7 @@ export const {
   deletePizzeria: deletePizzeriaActionCreator,
   createPizzeria: createPizzeriaActionCreator,
   editPizzeria: editPizzeriaActionCreator,
+  filterPizzerias: filterPizzeriasActionCreator,
 } = pizzeriasSlice.actions;
 
 export default pizzeriasSlice.reducer;

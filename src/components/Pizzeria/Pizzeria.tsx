@@ -5,7 +5,7 @@ import { IPizzeria } from "../../types/types";
 import StyledPizzeria from "./StyledPizzeria";
 
 const Pizzeria = ({
-  pizzeria: { id, name, address, image, timetable, owner },
+  pizzeria: { id, name, address, image, timetable, owner, imageBackup },
 }: {
   pizzeria: IPizzeria;
 }) => {
@@ -19,17 +19,12 @@ const Pizzeria = ({
   const navigateToDetails = (id: string): void => {
     navigate(`/pizzerias/${id}`);
   };
-
   return (
     <>
       <StyledPizzeria className="pizza-container">
         <div className="image-container">
           <img
-            src={
-              image.split("/")[0] !== "pizzerias"
-                ? image
-                : `${process.env.REACT_APP_API_URL}${image}`
-            }
+            src={image === "" ? "no-image-icon.png" : `${imageBackup}`}
             alt="neapolitan pizza"
           />
         </div>
