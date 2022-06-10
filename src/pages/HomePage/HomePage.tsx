@@ -1,5 +1,6 @@
 import Header from "../../components/Header/Header";
 import Navbar from "../../components/Navbar/Navbar";
+import PaginationButton from "../../components/PaginationButton/PaginationButton";
 import PizzeriaList from "../../components/PizzeriaList/PizzeriaList";
 import StyledHomePage from "./StyledHomePage";
 
@@ -14,6 +15,7 @@ const HomePage = (): JSX.Element => {
             <h3>What would you like to eat?</h3>
           </div>
           <PizzeriaList />
+          <PaginationButton />
         </div>
         <Navbar />
       </StyledHomePage>

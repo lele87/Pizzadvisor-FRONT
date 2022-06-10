@@ -8,23 +8,25 @@ import {
 } from "../features/pizzeriasSlice";
 import { AppDispatch } from "../store";
 
-export const loadPizzeriasThunk = () => async (dispatch: AppDispatch) => {
-  const url: string = `${process.env.REACT_APP_API_URL}pizzerias/list`;
-  const token = localStorage.getItem("token");
-  try {
-    const {
-      data: { pizzerias },
-    } = await axios.get(url, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
+export const loadPizzeriasThunk =
+  (limit: number) => async (dispatch: AppDispatch) => {
+    const url: string = `${process.env.REACT_APP_API_URL}pizzerias/list?limit=${limit}`;
+    const token = localStorage.getItem("token");
 
-    if (pizzerias) {
-      dispatch(loadPizzeriasActionCreator(pizzerias));
+    try {
+      const {
+        data: { pizzerias },
+      } = await axios.get(url, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      if (pizzerias) {
+        dispatch(loadPizzeriasActionCreator(pizzerias));
+      }
+    } catch (error: any) {
+      return error.message;
     }
-  } catch (error: any) {
-    return error.message;
-  }
-};
+  };
 
 export const deletePizzeriaThunk =
   (id: string) => async (dispatch: AppDispatch) => {

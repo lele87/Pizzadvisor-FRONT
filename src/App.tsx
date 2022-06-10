@@ -23,7 +23,7 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      dispatch(loadPizzeriasThunk());
+      dispatch(loadPizzeriasThunk(5));
       const { name, username, id }: DecodeToken = jwtDecode(token);
       dispatch(loginActionCreator({ name, username, id }));
     }
