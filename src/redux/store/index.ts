@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import paginationReducer from "../features/paginationSlice";
 import pizzeriaReducer from "../features/pizzeriaSlice";
 import pizzeriasReducer from "../features/pizzeriasSlice";
 import userReducer from "../features/userSlice";
@@ -8,6 +9,7 @@ const store = configureStore({
     user: userReducer,
     pizzerias: pizzeriasReducer,
     pizzeria: pizzeriaReducer,
+    pages: paginationReducer,
   },
 });
 

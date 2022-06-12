@@ -43,3 +43,8 @@ export interface IPizzeria {
   owner: string;
   id: string;
 }
+
+export interface IPizzeriaState {
+  pizzeriaInfo: IPizzeria[];
+  filter: string;
+}

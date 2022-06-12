@@ -3,7 +3,7 @@ import Pizzeria from "../Pizzeria/Pizzeria";
 import StyledPizzeriaList from "./StyledPizzeriaList";
 
 const PizzeriaList = () => {
-  const pizzerias = useAppSelector((state) => state.pizzerias);
+  const pizzerias = useAppSelector((state) => state.pizzerias.pizzeriaInfo);
 
   return (
     <StyledPizzeriaList>

@@ -1,27 +1,40 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IPizzeria } from "../../types/types";
+import { IPizzeria, IPizzeriaState } from "../../types/types";
 
-const initialState: IPizzeria[] = [];
+const initialState: IPizzeriaState = {
+  pizzeriaInfo: [],
+  filter: "All",
+};
 
 const pizzeriasSlice = createSlice({
   name: "pizzerias",
   initialState,
   reducers: {
-    loadPizzerias: (pizzerias, action: PayloadAction<IPizzeria[]>) => [
-      ...action.payload,
-    ],
-    deletePizzeria: (pizzerias, action: PayloadAction<string>) =>
-      pizzerias.filter((pizzeria) => pizzeria.id !== action.payload),
-    createPizzeria: (pizzerias, action: PayloadAction<IPizzeria>) => [
+    loadPizzerias: (pizzerias, action: PayloadAction<IPizzeria[]>) => ({
       ...pizzerias,
-      action.payload,
-    ],
-    editPizzeria: (pizzerias, action: PayloadAction<IPizzeria>) =>
-      pizzerias.map((pizzeria) =>
+      pizzeriaInfo: [...action.payload],
+    }),
+
+    deletePizzeria: (pizzerias, action: PayloadAction<string>) => ({
+      ...pizzerias,
+      pizzeriaInfo: pizzerias.pizzeriaInfo.filter(
+        (pizzeria) => pizzeria.id !== action.payload
+      ),
+    }),
+    createPizzeria: (pizzerias, action: PayloadAction<IPizzeria>) => ({
+      ...pizzerias,
+      pizzeriaInfo: [...pizzerias.pizzeriaInfo, action.payload],
+    }),
+    editPizzeria: (pizzerias, action: PayloadAction<IPizzeria>) => ({
+      ...pizzerias,
+      pizzeriaInfo: pizzerias.pizzeriaInfo.map((pizzeria) =>
         pizzeria.id === action.payload.id ? action.payload : pizzeria
       ),
-    filterPizzerias: (pizzerias, action: PayloadAction<string>) =>
-      pizzerias.filter((pizzeria) => pizzeria.specialty === "string"),
+    }),
+    filterPizzerias: (pizzerias, action: PayloadAction<string>) => ({
+      ...pizzerias,
+      filter: action.payload,
+    }),
   },
 });
 
