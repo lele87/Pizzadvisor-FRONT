@@ -9,8 +9,10 @@ import {
 import { AppDispatch } from "../store";
 
 export const loadPizzeriasThunk =
-  (limit: number) => async (dispatch: AppDispatch) => {
-    const url: string = `${process.env.REACT_APP_API_URL}pizzerias/list?limit=${limit}`;
+  (filter: string, limit: number) => async (dispatch: AppDispatch) => {
+    const url: string = `${
+      process.env.REACT_APP_API_URL
+    }pizzerias/list?filter=${filter === "All" ? "" : filter}&limit=${limit}`;
     const token = localStorage.getItem("token");
 
     try {

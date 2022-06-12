@@ -29,7 +29,7 @@ describe("Given a loadPizzeriasThunk function", () => {
         .mockResolvedValue({ data: { pizzerias: mockPizzerias }, status: 200 });
 
       const loadAction = loadPizzeriasActionCreator(mockPizzerias);
-      const thunk = loadPizzeriasThunk(5);
+      const thunk = loadPizzeriasThunk("Margherita", 5);
 
       await thunk(dispatch);
 

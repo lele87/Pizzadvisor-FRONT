@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
@@ -6,28 +5,28 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import { Toaster } from "react-hot-toast";
 import Controller from "./components/Controller/Controller";
 import { useAppDispatch, useAppSelector } from "./redux/store/hooks";
-import { loadPizzeriasThunk } from "./redux/thunks/pizzeriasThunks";
-import { loginActionCreator } from "./redux/features/userSlice";
-import { DecodeToken } from "./types/types";
-import jwtDecode from "jwt-decode";
 import PizzeriaFormPage from "./pages/PizzeriaFormPage.tsx/PizzeriaFormPage";
 import AntiController from "./components/AntiController/AntiController";
 import EditPizzeriaPage from "./pages/EditPizzeriaPage.tsx/EditPizzeriaPage";
 import DetailsPage from "./pages/DetailsPage/DetailsPage";
+import { useEffect } from "react";
+import { DecodeToken } from "./types/types";
+import jwtDecode from "jwt-decode";
+import { loginActionCreator } from "./redux/features/userSlice";
 
 function App() {
-  const dispatch = useAppDispatch();
-  const userInfo = useAppSelector((state) => state.user.logged);
   const pizzeria = useAppSelector((state) => state.pizzeria);
+  const { logged } = useAppSelector((state) => state.user);
+
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      dispatch(loadPizzeriasThunk(5));
       const { name, username, id }: DecodeToken = jwtDecode(token);
       dispatch(loginActionCreator({ name, username, id }));
     }
-  }, [dispatch, userInfo]);
+  }, [dispatch, logged]);
 
   return (
     <>
@@ -49,14 +48,7 @@ function App() {
             </AntiController>
           }
         />
-        <Route
-          path="/home"
-          element={
-            <Controller>
-              <HomePage />
-            </Controller>
-          }
-        />
+        <Route path="/home" element={<HomePage />} />
         <Route
           path="/createpizzeria"
           element={

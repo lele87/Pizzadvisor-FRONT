@@ -82,7 +82,6 @@ const StyledDetailsPage = styled.div`
   }
 
   .map-container {
-    width: 100%;
     height: 250px;
     border: 0;
   }

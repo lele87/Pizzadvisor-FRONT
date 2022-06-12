@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledPaginationButton = styled.div`
+const StyledPagination = styled.div`
   .loadmore-button {
     width: 200px;
     height: 50px;
@@ -25,4 +25,4 @@ const StyledPaginationButton = styled.div`
   }
 `;
 
-export default StyledPaginationButton;
+export default StyledPagination;
