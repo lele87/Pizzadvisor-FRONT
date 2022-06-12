@@ -12,7 +12,6 @@ const Pagination = () => {
   const loadMore = () => {
     dispatch(setPaginateActionCreator());
     dispatch(setCurrentPageActionCreator());
-    debugger;
   };
 
   return (

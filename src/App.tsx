@@ -48,7 +48,14 @@ function App() {
             </AntiController>
           }
         />
-        <Route path="/home" element={<HomePage />} />
+        <Route
+          path="/home"
+          element={
+            <Controller>
+              <HomePage />
+            </Controller>
+          }
+        />
         <Route
           path="/createpizzeria"
           element={
