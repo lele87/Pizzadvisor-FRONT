@@ -48,3 +48,9 @@ export interface IPizzeriaState {
   pizzeriaInfo: IPizzeria[];
   filter: string;
 }
+
+export interface IPagination {
+  currentPage: number;
+  pages: number;
+  pagination: number;
+}
