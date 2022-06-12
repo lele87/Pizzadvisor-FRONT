@@ -24,9 +24,6 @@ describe("Given a loadPizzeriasThunk function", () => {
       const dispatch = jest.fn();
 
       jest.spyOn(Storage.prototype, "getItem").mockReturnValue("token");
-      axios.get = jest
-        .fn()
-        .mockResolvedValue({ data: { pizzerias: mockPizzerias }, status: 200 });
 
       const loadAction = loadPizzeriasActionCreator(mockPizzerias);
       const thunk = loadPizzeriasThunk("Margherita", 5);

@@ -22,7 +22,7 @@ export const handlers = [
   rest.get(
     `${process.env.REACT_APP_API_URL}pizzerias/list`,
     (req, res, ctx) => {
-      return res(ctx.status(200), ctx.json({ mockPizzerias }));
+      return res(ctx.status(200), ctx.json({ pizzerias: mockPizzerias }));
     }
   ),
   rest.delete(
@@ -34,12 +34,12 @@ export const handlers = [
   rest.post(`${process.env.REACT_APP_API_URL}pizzerias/`, (req, res, ctx) => {
     return res(ctx.status(201), ctx.json({ newPizzeria: mockPizzerias[0] }));
   }),
-  rest.get(
-    `${process.env.REACT_APP_API_URL}pizzerias/:idPizzeria`,
-    (req, res, ctx) => {
-      return res(ctx.status(200), ctx.json({ data: mockPizzerias[0] }));
-    }
-  ),
+  // rest.get(
+  //   `${process.env.REACT_APP_API_URL}pizzerias/:idPizzeria`,
+  //   (req, res, ctx) => {
+  //     return res(ctx.status(200), ctx.json({ data: mockPizzerias[0] }));
+  //   }
+  // ),
   rest.patch(`${process.env.REACT_APP_API_URL}pizzerias/1`, (req, res, ctx) => {
     return res(
       ctx.status(201),
