@@ -1,10 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-export interface IPagination {
-  currentPage: number;
-  pages: number;
-  pagination: number;
-}
+import { IPagination } from "../../types/types";
 
 const initialState: IPagination = {
   currentPage: 1,

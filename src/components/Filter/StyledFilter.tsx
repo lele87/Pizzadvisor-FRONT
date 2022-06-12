@@ -17,7 +17,7 @@ const StyledFilter = styled.div`
     font-family: "Roboto";
     letter-spacing: 2px;
     font-weight: 400;
-    font-size: 12.5px;
+    font-size: 12px;
     border: 1px solid rgb(38, 50, 56);
   }
 

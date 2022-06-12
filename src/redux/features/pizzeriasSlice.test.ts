@@ -4,6 +4,7 @@ import pizzeriasSlice, {
   createPizzeriaActionCreator,
   deletePizzeriaActionCreator,
   editPizzeriaActionCreator,
+  filterPizzeriasActionCreator,
   loadPizzeriasActionCreator,
 } from "./pizzeriasSlice";
 
@@ -82,7 +83,7 @@ describe("Given a createPizzeria reducer", () => {
   });
 });
 
-describe("Given a edite Pizzeria Reducer", () => {
+describe("Given a edit Pizzeria Reducer", () => {
   describe("When it receives an initial state with an array of 2 pizzerias and a edit pizzeria action with the updated pizzeria", () => {
     test("Then it should return a new pizzeria state with the array with the updated pizzeria", () => {
       const initialState = {
@@ -108,6 +109,28 @@ describe("Given a edite Pizzeria Reducer", () => {
       };
 
       const pizzeriaStatus = pizzeriasSlice(initialState, editPizzeriaAction);
+
+      expect(pizzeriaStatus).toEqual(expectedNewState);
+    });
+  });
+});
+
+describe("Given a filter Pizzeria Reducer", () => {
+  describe("When it receives an initial state with an array of 2 pizzerias and a filter pizzeria action with the filter action", () => {
+    test("Then it should return a new pizzeria state with the array with the filtered pizzerias", () => {
+      const initialState = {
+        pizzeriaInfo: [mockPizzerias[0], mockPizzerias[1]],
+        filter: "All",
+      };
+
+      const filterPizzeriaAction = filterPizzeriasActionCreator("Margherita");
+
+      const expectedNewState = {
+        pizzeriaInfo: [mockPizzerias[0], mockPizzerias[1]],
+        filter: "Margherita",
+      };
+
+      const pizzeriaStatus = pizzeriasSlice(initialState, filterPizzeriaAction);
 
       expect(pizzeriaStatus).toEqual(expectedNewState);
     });
