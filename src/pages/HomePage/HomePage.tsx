@@ -6,6 +6,7 @@ import Pagination from "../../components/Pagination/Pagination";
 import PizzeriaList from "../../components/PizzeriaList/PizzeriaList";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { loadPizzeriasThunk } from "../../redux/thunks/pizzeriasThunks";
+import PageNotFound from "../PageNotFound/PageNotFound";
 import StyledHomePage from "./StyledHomePage";
 
 const HomePage = (): JSX.Element => {
