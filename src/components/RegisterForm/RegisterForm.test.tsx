@@ -15,6 +15,9 @@ jest.mock("react-redux", () => ({
 describe("Given a RegisterForm component", () => {
   describe("When it's invoked", () => {
     test("Then it should render 3 input fields and 1 button", () => {
+      const expectedNumberInput = 2;
+      const expectedNumberButtons = 1;
+
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -23,15 +26,13 @@ describe("Given a RegisterForm component", () => {
         </BrowserRouter>
       );
 
-      const nameInput = screen.getByLabelText("Name");
-      const usernameInput = screen.getByLabelText("Username");
+      const inputs = screen.getAllByRole("textbox");
       const passwordInput = screen.getByLabelText("Password");
-      const button = screen.getByRole("button");
+      const buttons = screen.getAllByRole("button");
 
-      expect(nameInput).toBeInTheDocument();
-      expect(usernameInput).toBeInTheDocument();
+      expect(buttons).toHaveLength(expectedNumberButtons);
+      expect(inputs).toHaveLength(expectedNumberInput);
       expect(passwordInput).toBeInTheDocument();
-      expect(button).toBeInTheDocument();
     });
   });
   describe("When the user types the name 'lelo' in the input field", () => {
@@ -70,10 +71,6 @@ describe("Given a RegisterForm component", () => {
 
   describe("When the user fill the name, username and password input fields", () => {
     test("Then the register button should be enabled", () => {
-      const username = "lelo";
-      const name = "lelo";
-      const password = "lelo";
-
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -81,6 +78,11 @@ describe("Given a RegisterForm component", () => {
           </Provider>
         </BrowserRouter>
       );
+
+      const username = "lelo";
+      const name = "lelo";
+      const password = "lelo";
+
       const nameInput = screen.getByLabelText("Name");
       const usernameInput = screen.getByLabelText("Username");
       const passwordInput = screen.getByLabelText("Password");
@@ -93,33 +95,34 @@ describe("Given a RegisterForm component", () => {
 
       expect(registerButton).not.toBeDisabled();
     });
-  });
-  describe("When the user fill the username and password input fields and the user clicks on the register button", () => {
-    test("Then the dispatch should be invoked", () => {
-      const username = "lelo";
-      const password = "lelo";
-      const name = "lelo";
 
-      render(
-        <BrowserRouter>
-          <Provider store={store}>
-            <RegisterForm />
-          </Provider>
-        </BrowserRouter>
-      );
+    describe("When the user fill the username and password input fields and the user clicks on the register button", () => {
+      test("Then the dispatch should be invoked", () => {
+        const username = "lelo";
+        const password = "lelo";
+        const name = "lelo";
 
-      const nameInput = screen.getByLabelText("Name");
-      const usernameInput = screen.getByLabelText("Username");
-      const passwordInput = screen.getByLabelText("Password");
-      const registerButton = screen.getByRole("button", { name: "SIGN UP" });
+        render(
+          <BrowserRouter>
+            <Provider store={store}>
+              <RegisterForm />
+            </Provider>
+          </BrowserRouter>
+        );
 
-      userEvent.type(nameInput, name);
-      userEvent.type(usernameInput, username);
-      userEvent.type(passwordInput, password);
+        const nameInput = screen.getByLabelText("Name");
+        const usernameInput = screen.getByLabelText("Username");
+        const passwordInput = screen.getByLabelText("Password");
+        const registerButton = screen.getByRole("button", { name: "SIGN UP" });
 
-      userEvent.click(registerButton);
+        userEvent.type(nameInput, name);
+        userEvent.type(usernameInput, username);
+        userEvent.type(passwordInput, password);
 
-      expect(mockDispatch).toHaveBeenCalled();
+        userEvent.click(registerButton);
+
+        expect(mockDispatch).toHaveBeenCalled();
+      });
     });
   });
 });
