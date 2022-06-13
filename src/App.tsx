@@ -13,6 +13,7 @@ import { useEffect } from "react";
 import { DecodeToken } from "./types/types";
 import jwtDecode from "jwt-decode";
 import { loginActionCreator } from "./redux/features/userSlice";
+import PageNotFound from "./pages/PageNotFound/PageNotFound";
 
 function App() {
   const pizzeria = useAppSelector((state) => state.pizzeria);
@@ -72,6 +73,7 @@ function App() {
           path="/pizzerias/:idPizzeria"
           element={<DetailsPage pizzeria={pizzeria} />}
         />
+        <Route path="/*" element={<PageNotFound />} />
       </Routes>
       <Toaster
         toastOptions={{
