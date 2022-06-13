@@ -63,7 +63,7 @@ describe("Given a pagination reducer", () => {
         pagination: 5,
       };
 
-      const currentPageAction = setPagesActionCreator();
+      const currentPageAction = setPagesActionCreator(1);
 
       const newStatus = paginationSlice(initialState, currentPageAction);
 
