@@ -4,6 +4,7 @@ const StyledFilter = styled.div`
   display: flex;
   justify-content: center;
   gap: 6px;
+  margin-bottom: 15px;
 
   button {
     width: 107px;

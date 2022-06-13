@@ -10,6 +10,7 @@ import StyledHomePage from "./StyledHomePage";
 
 const HomePage = (): JSX.Element => {
   const { pagination } = useAppSelector((state) => state.pages);
+  const { currentPage, pages } = useAppSelector((state) => state.pages);
   const { filter } = useAppSelector((state) => state.pizzerias);
   const { specialty } = useAppSelector((state) => state.pizzeria);
   const dispatch = useAppDispatch();
@@ -29,10 +30,12 @@ const HomePage = (): JSX.Element => {
           </div>
           <Filter />
           <PizzeriaList />
+
           <Pagination />
         </div>
         <Navbar />
       </StyledHomePage>
+      {pages > currentPage && <Pagination />}
     </>
   );
 };

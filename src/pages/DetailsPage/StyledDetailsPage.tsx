@@ -22,6 +22,7 @@ const StyledDetailsPage = styled.div`
     box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
     height: 100%;
     margin-top: 30px;
+    padding-bottom: 30px;
   }
 
   .image-container {
@@ -40,12 +41,14 @@ const StyledDetailsPage = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-left: 4px;
+    margin-right: 4px;
+    gap: 4px;
   }
 
   .pizzeria-name {
     font-size: 25px;
-    position: relative;
-    bottom: 20px;
+    margin-bottom: 10px;
     text-align: center;
   }
 
@@ -82,6 +85,8 @@ const StyledDetailsPage = styled.div`
   }
 
   .map-container {
+    display: flex;
+    justify-content: center;
     height: 250px;
     border: 0;
   }

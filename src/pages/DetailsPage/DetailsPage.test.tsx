@@ -23,6 +23,17 @@ describe("Given a DetailsPage component", () => {
     id: "1",
   };
 
+  const userLoginAction = {
+    type: "user/login",
+    payload: {
+      name: "ciccio",
+      username: "ciccio",
+      id: "53454354323646362362",
+    },
+  };
+
+  store.dispatch(userLoginAction);
+
   render(
     <BrowserRouter>
       <Provider store={store}>
