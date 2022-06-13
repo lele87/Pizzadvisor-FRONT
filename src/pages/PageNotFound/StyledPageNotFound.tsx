@@ -6,7 +6,7 @@ const StyledPageNotFound = styled.div`
   align-items: center;
   font-family: "Roboto";
 
-  span {
+  p {
     font-size: 25px;
     font-weight: 400;
     text-align: center;

@@ -12,8 +12,9 @@ const PageNotFound = () => {
     <>
       <StyledPageNotFound>
         <div className="content">
-          <span className="message">Sorry</span>
-          <span className="message">Page not found</span>
+          <p className="message">
+            Sorry<br></br>Page not found
+          </p>
           <img src="/images/pizza-pagenotfound.png" alt="Pizza slice" />
           <button className="backhome-button" onClick={navigateToHome}>
             BACK TO HOMEPAGE
