@@ -8,6 +8,7 @@ const StyledPizzeria = styled.li`
   background-color: #fafafa;
   border-radius: 4rem;
   margin: 0 auto;
+  padding-bottom: 10px;
   letter-spacing: 1px;
   box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
   font-family: "Roboto";
@@ -65,6 +66,7 @@ const StyledPizzeria = styled.li`
     margin-left: 4px;
     margin-right: 3px;
     margin-top: 20px;
+    gap: 10px;
 
     @media (min-width: 699px) {
       margin-left: 18px;
@@ -73,9 +75,10 @@ const StyledPizzeria = styled.li`
 
   .pizzeria-name {
     font-size: 28px;
-    position: relative;
-    bottom: 20px;
     margin-left: 5px;
+    margin-right: 5px;
+    padding-bottom: 10px;
+    padding-top: 7px;
 
     @media (min-width: 1280px) {
       font-size: 20px;

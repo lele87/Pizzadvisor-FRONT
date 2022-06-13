@@ -2,19 +2,29 @@ import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Navbar from "../../components/Navbar/Navbar";
-import { useAppDispatch } from "../../redux/store/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { loadPizzeriaThunk } from "../../redux/thunks/pizzeriaThunks";
 import { IPizzeria } from "../../types/types";
 import StyledDetailsPage from "./StyledDetailsPage";
 
 const DetailsPage = ({
-  pizzeria: { id, name, address, image, timetable, specialty },
+  pizzeria: {
+    id,
+    name,
+    address,
+    image,
+    timetable,
+    specialty,
+    imageBackup,
+    owner,
+  },
 }: {
   pizzeria: IPizzeria;
 }): JSX.Element => {
   const { idPizzeria } = useParams();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const user = useAppSelector((state) => state.user);
 
   useEffect(() => {
     dispatch(loadPizzeriaThunk(idPizzeria as string));
@@ -32,11 +42,7 @@ const DetailsPage = ({
           <div className="pizza-container">
             <div className="image-container">
               <img
-                src={
-                  image.split("/")[0] !== "pizzerias"
-                    ? image
-                    : `${process.env.REACT_APP_API_URL}${image}`
-                }
+                src={image === "" ? "no-image-icon.png" : `${imageBackup}`}
                 alt="neapolitan pizza"
               />
             </div>
@@ -64,12 +70,16 @@ const DetailsPage = ({
                 ></iframe>
               </div>
             </div>
-            <button
-              className="submit-button"
-              onClick={() => navigateToEdit(id)}
-            >
-              EDIT DETAILS
-            </button>
+            {user.userInfo.id === owner ? (
+              <button
+                className="submit-button"
+                onClick={() => navigateToEdit(id)}
+              >
+                EDIT DETAILS
+              </button>
+            ) : (
+              ""
+            )}
           </div>
         </div>
         <Navbar />

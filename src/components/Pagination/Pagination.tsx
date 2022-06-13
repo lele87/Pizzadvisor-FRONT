@@ -2,16 +2,20 @@ import {
   setCurrentPageActionCreator,
   setPaginateActionCreator,
 } from "../../redux/features/paginationSlice";
-import { useAppDispatch } from "../../redux/store/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 
 import StyledPagination from "./StyledPagination";
 
 const Pagination = () => {
   const dispatch = useAppDispatch();
+  const { pages, currentPage } = useAppSelector((state) => state.pages);
 
   const loadMore = () => {
     dispatch(setPaginateActionCreator());
     dispatch(setCurrentPageActionCreator());
+
+    console.log(pages);
+    console.log(currentPage);
   };
 
   return (
