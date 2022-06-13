@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ActionType } from "react-hot-toast/dist/core/store";
 import { IPagination } from "../../types/types";
 
 const initialState: IPagination = {
