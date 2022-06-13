@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { ActionType } from "react-hot-toast/dist/core/store";
 import { IPagination } from "../../types/types";
 
 const initialState: IPagination = {
@@ -19,9 +20,9 @@ const paginationSlice = createSlice({
       ...pages,
       currentPage: pages.currentPage + 1,
     }),
-    setPages: (pages) => ({
+    setPages: (pages, action: PayloadAction<number>) => ({
       ...pages,
-      pages: pages.pages + 1,
+      pages: action.payload,
     }),
     resetPaginate: (pages) => ({
       ...pages,

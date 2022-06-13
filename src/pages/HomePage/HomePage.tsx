@@ -30,12 +30,10 @@ const HomePage = (): JSX.Element => {
           </div>
           <Filter />
           <PizzeriaList />
-
-          <Pagination />
+          {currentPage === pages ? "" : <Pagination />}
         </div>
         <Navbar />
       </StyledHomePage>
-      {pages > currentPage && <Pagination />}
     </>
   );
 };

@@ -1,5 +1,6 @@
 import axios from "axios";
 import toast from "react-hot-toast";
+import { setPagesActionCreator } from "../features/paginationSlice";
 import {
   createPizzeriaActionCreator,
   deletePizzeriaActionCreator,
@@ -17,12 +18,13 @@ export const loadPizzeriasThunk =
 
     try {
       const {
-        data: { pizzerias },
+        data: { pizzerias, pages },
       } = await axios.get(url, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
       if (pizzerias) {
+        dispatch(setPagesActionCreator(pages));
         dispatch(loadPizzeriasActionCreator(pizzerias));
       }
     } catch (error: any) {
