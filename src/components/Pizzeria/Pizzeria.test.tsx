@@ -45,28 +45,28 @@ describe("Given a Pizzeria component", () => {
       expect(expectedHeading).toBeInTheDocument();
     });
     describe("When the users clicks on the delete image", () => {
-      test("Then the dispatch should be invoked", () => {
-        const pizzeria = {
+      const pizzeria = {
+        name: "ciccio",
+        address: "carrer ciccio",
+        image: "",
+        timetable: "15:00-23:00",
+        owner: "53454354323646362362",
+        specialty: "Margherita",
+        id: "1",
+      };
+
+      const userLoginAction = {
+        type: "user/login",
+        payload: {
           name: "ciccio",
-          address: "carrer ciccio",
-          image: "",
-          timetable: "15:00-23:00",
-          owner: "53454354323646362362",
-          specialty: "Margherita",
-          id: "1",
-        };
+          username: "ciccio",
+          id: "53454354323646362362",
+        },
+      };
 
-        const userLoginAction = {
-          type: "user/login",
-          payload: {
-            name: "ciccio",
-            username: "ciccio",
-            id: "53454354323646362362",
-          },
-        };
+      store.dispatch(userLoginAction);
 
-        store.dispatch(userLoginAction);
-
+      test("Then the dispatch should be invoked", () => {
         render(
           <BrowserRouter>
             <Provider store={store}>
@@ -81,45 +81,25 @@ describe("Given a Pizzeria component", () => {
 
         expect(mockDispatch).toHaveBeenCalled();
       });
-    });
-    describe("When the users clicks on the info image", () => {
-      test("Then it should navigate to the Details Page", () => {
-        const pizzeria = {
-          name: "ciccio",
-          address: "carrer ciccio",
-          image: "",
-          timetable: "15:00-23:00",
-          owner: "53454354323646362362",
-          specialty: "Margherita",
-          id: "1",
-        };
 
-        const userLoginAction = {
-          type: "user/login",
-          payload: {
-            name: "ciccio",
-            username: "ciccio",
-            id: "53454354323646362362",
-          },
-        };
+      describe("When the users clicks on the info image", () => {
+        test("Then it should navigate to the Details Page", () => {
+          render(
+            <BrowserRouter>
+              <Provider store={store}>
+                <Pizzeria pizzeria={pizzeria} />
+              </Provider>
+            </BrowserRouter>
+          );
 
-        store.dispatch(userLoginAction);
+          const infoImage = screen.getByAltText(
+            "Circle Info to navigate to pizzeria details page"
+          );
 
-        render(
-          <BrowserRouter>
-            <Provider store={store}>
-              <Pizzeria pizzeria={pizzeria} />
-            </Provider>
-          </BrowserRouter>
-        );
+          userEvent.click(infoImage);
 
-        const infoImage = screen.getByAltText(
-          "Circle Info to navigate to pizzeria details page"
-        );
-
-        userEvent.click(infoImage);
-
-        expect(mockedUsedNavigate).toHaveBeenCalled();
+          expect(mockedUsedNavigate).toHaveBeenCalled();
+        });
       });
     });
   });

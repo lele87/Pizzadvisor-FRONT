@@ -15,8 +15,9 @@ jest.mock("react-redux", () => ({
 
 describe("Given an EditPizzeriaPage", () => {
   describe("When it's invoked", () => {
-    test("Then it should render a form", () => {
-      const expectedNumber = 2;
+    test("Then it should render a form with 4 input fields and 2 buttons", () => {
+      const expectedNumberInput = 4;
+      const expectedNumberButtons = 2;
 
       render(
         <BrowserRouter>
@@ -26,19 +27,11 @@ describe("Given an EditPizzeriaPage", () => {
         </BrowserRouter>
       );
 
-      const nameInput = screen.getByLabelText("Name");
-      const addressInput = screen.getByLabelText("Address");
-      const timetableInput = screen.getByLabelText("Opening Hours");
-      const specialtyInput = screen.getByLabelText("Special Pizza");
-      const imageInput = screen.getByLabelText("Image");
-      const button = screen.getAllByRole("button");
+      const inputs = screen.getAllByRole("textbox");
+      const buttons = screen.getAllByRole("button");
 
-      expect(nameInput).toBeInTheDocument();
-      expect(addressInput).toBeInTheDocument();
-      expect(timetableInput).toBeInTheDocument();
-      expect(specialtyInput).toBeInTheDocument();
-      expect(imageInput).toBeInTheDocument();
-      expect(button).toHaveLength(expectedNumber);
+      expect(buttons).toHaveLength(expectedNumberButtons);
+      expect(inputs).toHaveLength(expectedNumberInput);
     });
   });
   describe("When invoked and the user clicks on the edit pizzeria button", () => {
