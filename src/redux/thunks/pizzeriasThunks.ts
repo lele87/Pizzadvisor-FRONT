@@ -7,8 +7,11 @@ import {
   editPizzeriaActionCreator,
   loadPizzeriasActionCreator,
 } from "../features/pizzeriasSlice";
+import {
+  loadedOffActionCreator,
+  loadedOnActionCreator,
+} from "../features/userISlice";
 import { AppDispatch } from "../store";
-import { loadedOffActionCreator, loadedOnActionCreator } from "./uiSlice";
 
 export const loadPizzeriasThunk =
   (filter: string, limit: number) => async (dispatch: AppDispatch) => {

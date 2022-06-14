@@ -12,7 +12,10 @@ import {
   UserLogin,
   UserRegister,
 } from "../../types/types";
-import { loadedOffActionCreator, loadedOnActionCreator } from "./uiSlice";
+import {
+  loadedOffActionCreator,
+  loadedOnActionCreator,
+} from "../features/userISlice";
 
 export const registerThunk =
   (userData: UserRegister) => async (dispatch: AppDispatch) => {
