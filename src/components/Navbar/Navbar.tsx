@@ -17,7 +17,7 @@ const Navbar = (): JSX.Element => {
       <StyledNavbar>
         <ul>
           <li>
-            <Link to="/login">
+            <Link to="/home">
               <img
                 src="/images/house-solid.svg"
                 alt="Redirect to homepage link home"
@@ -31,13 +31,12 @@ const Navbar = (): JSX.Element => {
             />
           </li>
           <li>
-            <Link to="/">
-              <img
-                src="/images/user-solid.svg"
-                alt="Redirect to favourites places link user"
-              />
-            </Link>
+            <img
+              src="/images/user-solid.svg"
+              alt="Redirect to favourites places link user"
+            />
           </li>
+          <h3 className="info-navbar">© 2022 By Pizzadvisor</h3>
         </ul>
       </StyledNavbar>
     </>

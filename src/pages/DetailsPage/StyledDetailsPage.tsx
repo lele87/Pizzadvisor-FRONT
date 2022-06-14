@@ -23,17 +23,33 @@ const StyledDetailsPage = styled.div`
     height: 100%;
     margin-top: 30px;
     padding-bottom: 30px;
+
+    @media (min-width: 699px) {
+      width: 70%;
+    }
   }
 
   .image-container {
     display: flex;
     width: 100%;
+
+    @media (min-width: 699px) {
+      width: 70%;
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+    }
   }
 
   img {
     position: relative;
     width: 100%;
     border-radius: 3rem 3rem 0 0;
+
+    @media (min-width: 699px) {
+      border-radius: 3rem;
+      margin-top: 20px;
+    }
   }
 
   .info-container {
@@ -61,6 +77,10 @@ const StyledDetailsPage = styled.div`
     bottom: 30px;
     gap: 0.5rem;
     text-align: center;
+
+    @media (min-width: 699px) {
+      gap: 0.9rem;
+    }
   }
 
   .submit-button {
@@ -82,13 +102,30 @@ const StyledDetailsPage = styled.div`
     text-transform: uppercase;
     line-height: 20px;
     font-weight: 400;
+
+    @media (min-width: 699px) {
+      width: 20%;
+    }
   }
 
   .map-container {
     display: flex;
     justify-content: center;
-    height: 250px;
+    align-items: center;
+    height: 350px;
     border: 0;
+    margin-bottom: 20px;
+
+    @media (min-width: 699px) {
+      width: 705px;
+    }
+  }
+
+  iframe {
+    @media (min-width: 699px) {
+      width: 705px;
+      height: 350px;
+    }
   }
 `;
 

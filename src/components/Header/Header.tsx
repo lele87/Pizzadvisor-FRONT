@@ -1,4 +1,5 @@
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { blankStateActionCreator } from "../../redux/features/pizzeriaSlice";
 import { logoutActionCreator } from "../../redux/features/userSlice";
 import { useAppDispatch } from "../../redux/store/hooks";
 import StyledHeader from "./StyledHeader";
@@ -13,10 +14,20 @@ const Header = (): JSX.Element => {
     navigate("/");
   };
 
+  const createPizzeria = () => {
+    dispatch(blankStateActionCreator());
+    navigate("/createpizzeria");
+  };
+
   return (
     <>
       <StyledHeader>
-        <h1 className="logo-title">Pizzadvisor</h1>
+        <NavLink className="navlink-home" to="/home">
+          <h1 className="logo-title">Pizzadvisor</h1>
+        </NavLink>
+        <button className="create-button" onClick={createPizzeria}>
+          CREATE PIZZERIA
+        </button>
         <button className="logout-button" onClick={logOut}>
           LOGOUT
         </button>

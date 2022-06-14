@@ -6,6 +6,12 @@ const StyledFilter = styled.div`
   gap: 6px;
   margin-bottom: 15px;
 
+  @media (min-width: 699px) {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 190px;
+  }
+
   button {
     width: 107px;
     height: 50px;

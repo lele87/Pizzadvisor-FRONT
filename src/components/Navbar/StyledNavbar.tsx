@@ -30,6 +30,21 @@ const StyledNavbar = styled.div`
   img {
     width: 40px;
     height: 40px;
+
+    @media (min-width: 699px) {
+      display: none;
+    }
+  }
+
+  .info-navbar {
+    @media (max-width: 699px) {
+      display: none;
+    }
+
+    @media (min-width: 699px) {
+      position: relative;
+      right: 620px;
+    }
   }
 `;
 

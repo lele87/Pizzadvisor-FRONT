@@ -16,6 +16,7 @@ const StyledPagination = styled.div`
     transition: 0.3s;
     box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
     font-size: 18px;
+    cursor: pointer;
   }
   #loadmore-button:hover {
     color: blue;
