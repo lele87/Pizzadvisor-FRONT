@@ -17,15 +17,11 @@ export const loadPizzeriasThunk =
     const token = localStorage.getItem("token");
 
     try {
-      toast.loading("Loading...");
-
       const {
         data: { pizzerias, pages },
       } = await axios.get(url, {
         headers: { Authorization: `Bearer ${token}` },
       });
-
-      toast.dismiss();
 
       if (pizzerias) {
         dispatch(setPagesActionCreator(pages));

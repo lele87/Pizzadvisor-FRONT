@@ -12,6 +12,13 @@ jest.mock("react-redux", () => ({
   useDispatch: () => mockDispatch,
 }));
 
+const mockedUsedNavigate = jest.fn();
+
+jest.mock("react-router-dom", () => ({
+  ...(jest.requireActual("react-router-dom") as any),
+  useNavigate: () => mockedUsedNavigate,
+}));
+
 describe("Given a header", () => {
   describe("When it's invoked", () => {
     test("Then it should render a heading and 2 buttons", () => {
@@ -47,6 +54,40 @@ describe("Given a header", () => {
       userEvent.click(logoutButton);
 
       expect(mockDispatch).toHaveBeenCalled();
+    });
+  });
+  describe("When the user clicks on the create pizzeria button", () => {
+    test("Then the dispatch should be called", () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <Header />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const logoutButton = screen.getByRole("button", {
+        name: "CREATE PIZZERIA",
+      });
+
+      userEvent.click(logoutButton);
+
+      expect(mockDispatch).toHaveBeenCalled();
+    });
+    test("Then it should navigate to HomePage", () => {
+      render(
+        <BrowserRouter>
+          <Provider store={store}>
+            <Header />
+          </Provider>
+        </BrowserRouter>
+      );
+
+      const button = screen.getByRole("button", { name: "CREATE PIZZERIA" });
+
+      userEvent.click(button);
+
+      expect(mockedUsedNavigate).toHaveBeenCalled();
     });
   });
 });
