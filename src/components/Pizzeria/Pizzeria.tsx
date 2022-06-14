@@ -24,7 +24,7 @@ const Pizzeria = ({
       <StyledPizzeria className="pizza-container">
         <div className="image-container">
           <img
-            src={image === "" ? "no-image-icon.png" : `${imageBackup}`}
+            src={image ? `${imageBackup}` : "no-image-icon.png"}
             alt="neapolitan pizza"
           />
         </div>

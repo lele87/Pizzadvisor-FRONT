@@ -26,4 +26,18 @@ describe("Given a loadPizzeriaThunk function", () => {
       expect(dispatch).toHaveBeenCalledWith(loadAction);
     });
   });
+  describe("When it's called with a pizzeria with id 3 not present in the database", () => {
+    test("Then it should not dispatch the loadPizzeriaActionCreator", async () => {
+      const dispatch = jest.fn();
+      const idPizzeria = "3";
+
+      jest.spyOn(Storage.prototype, "getItem").mockReturnValue("token");
+
+      const thunk = loadPizzeriaThunk(idPizzeria);
+
+      await thunk(dispatch);
+
+      expect(dispatch).not.toHaveBeenCalled();
+    });
+  });
 });
