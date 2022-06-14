@@ -12,15 +12,16 @@ import {
   UserLogin,
   UserRegister,
 } from "../../types/types";
+import { loadedOffActionCreator, loadedOnActionCreator } from "./uiSlice";
 
 export const registerThunk =
   (userData: UserRegister) => async (dispatch: AppDispatch) => {
     const url: string = `${process.env.REACT_APP_API_URL}user/register`;
 
     try {
-      toast.loading("Loading...");
+      dispatch(loadedOnActionCreator());
       const { data } = await axios.post(url, userData);
-
+      dispatch(loadedOffActionCreator());
       toast.dismiss();
       toast.success("You have succesfully registered!");
 
@@ -44,7 +45,7 @@ export const loginThunk =
     const url: string = `${process.env.REACT_APP_API_URL}user/login`;
 
     try {
-      toast.loading("Loading...");
+      dispatch(loadedOnActionCreator());
       const {
         data: { token },
       }: ResponseApi = await axios.post(url, userData);
@@ -53,6 +54,7 @@ export const loginThunk =
         const { name, username, id }: DecodeToken = jwtDecode(token);
         dispatch(loginActionCreator({ name, username, id }));
         localStorage.setItem("token", token);
+        dispatch(loadedOffActionCreator());
         toast.dismiss();
         toast.success("Successfully logged");
       }

@@ -3,6 +3,7 @@ import paginationReducer from "../features/paginationSlice";
 import pizzeriaReducer from "../features/pizzeriaSlice";
 import pizzeriasReducer from "../features/pizzeriasSlice";
 import userReducer from "../features/userSlice";
+import uiReducer from "../thunks/uiSlice";
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     pizzerias: pizzeriasReducer,
     pizzeria: pizzeriaReducer,
     pages: paginationReducer,
+    ui: uiReducer,
   },
 });
 

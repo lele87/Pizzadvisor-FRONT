@@ -8,6 +8,7 @@ import {
   loadPizzeriasActionCreator,
 } from "../features/pizzeriasSlice";
 import { AppDispatch } from "../store";
+import { loadedOffActionCreator, loadedOnActionCreator } from "./uiSlice";
 
 export const loadPizzeriasThunk =
   (filter: string, limit: number) => async (dispatch: AppDispatch) => {
@@ -17,6 +18,7 @@ export const loadPizzeriasThunk =
     const token = localStorage.getItem("token");
 
     try {
+      dispatch(loadedOnActionCreator());
       const {
         data: { pizzerias, pages },
       } = await axios.get(url, {
@@ -26,6 +28,7 @@ export const loadPizzeriasThunk =
       if (pizzerias) {
         dispatch(setPagesActionCreator(pages));
         dispatch(loadPizzeriasActionCreator(pizzerias));
+        dispatch(loadedOffActionCreator());
       }
     } catch (error: any) {
       toast.dismiss();
@@ -39,13 +42,19 @@ export const deletePizzeriaThunk =
     const url: string = `${process.env.REACT_APP_API_URL}pizzerias/${id}`;
     const token = localStorage.getItem("token");
     try {
+      dispatch(loadedOnActionCreator());
       const { status } = await axios.delete(url, {
         headers: { Authorization: `Bearer ${token}` },
       });
+      dispatch(loadedOffActionCreator());
       if (status === 200) {
         dispatch(deletePizzeriaActionCreator(id));
+        toast.dismiss();
+        toast.success("You deleted a pizzeria");
       }
     } catch (error: any) {
+      toast.dismiss();
+      toast.error("Something went wrong");
       return error.message;
     }
   };
@@ -56,7 +65,7 @@ export const createPizzeriaThunk =
     const token = localStorage.getItem("token");
 
     try {
-      toast.loading("Loading...");
+      dispatch(loadedOnActionCreator());
       const {
         data: { newPizzeria },
       } = await axios.post(url, pizzeriaData, {
@@ -67,6 +76,7 @@ export const createPizzeriaThunk =
       toast.success("You added a pizzeria");
 
       if (newPizzeria) {
+        dispatch(loadedOffActionCreator());
         dispatch(createPizzeriaActionCreator(newPizzeria));
       }
     } catch (error: any) {
@@ -82,6 +92,7 @@ export const editPizzeriaThunk =
     const token = localStorage.getItem("token");
 
     try {
+      dispatch(loadedOnActionCreator());
       const {
         data: { updatedPizzeria },
       } = await axios.patch(url, pizzeriaData, {
@@ -92,6 +103,7 @@ export const editPizzeriaThunk =
       toast.success("You edited a pizzeria");
 
       if (updatedPizzeria) {
+        dispatch(loadedOffActionCreator());
         dispatch(editPizzeriaActionCreator(updatedPizzeria));
       }
     } catch (error: any) {
