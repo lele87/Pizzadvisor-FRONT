@@ -18,8 +18,11 @@ const StyledPizzeria = styled.li`
   }
 
   @media (min-width: 699px) {
-    width: 90%;
-    height: 100%;
+    height: 300px;
+    margin: 0;
+    width: 45%;
+    display: flex;
+    align-items: center;
   }
 
   .image-container {
@@ -29,6 +32,9 @@ const StyledPizzeria = styled.li`
 
     @media (min-width: 699px) {
       margin-left: 9px;
+      display: flex;
+      height: 100%;
+      width: 45%;
     }
   }
 
@@ -56,6 +62,11 @@ const StyledPizzeria = styled.li`
       width: 120px;
       height: 120px;
     }
+
+    @media (min-width: 699px) {
+      width: 250px;
+      height: 250px;
+    }
   }
 
   .info-container {
@@ -69,7 +80,8 @@ const StyledPizzeria = styled.li`
     gap: 10px;
 
     @media (min-width: 699px) {
-      margin-left: 18px;
+      margin-left: 21px;
+      margin-right: 15px;
     }
   }
 
@@ -80,8 +92,8 @@ const StyledPizzeria = styled.li`
     padding-bottom: 10px;
     padding-top: 7px;
 
-    @media (min-width: 1280px) {
-      font-size: 20px;
+    @media (min-width: 699px) {
+      font-size: 25px;
     }
 
     @media (min-width: 461px) and (max-width: 600px) {
@@ -107,8 +119,8 @@ const StyledPizzeria = styled.li`
     gap: 0.5rem;
     margin-left: 5px;
 
-    @media (min-width: 1280px) {
-      font-size: 16px;
+    @media (min-width: 699px) {
+      font-size: 18px;
     }
 
     @media (min-width: 461px) and (max-width: 600px) {

@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 const StyledHomePage = styled.div`
   font-family: "Roboto";
+  display: flex;
+  flex-direction: column;
 
   .info-text h2 {
     text-align: center;
@@ -20,6 +22,11 @@ const StyledHomePage = styled.div`
 
   .content {
     min-height: calc(100vh - 70px);
+
+    @media (min-width: 699px) {
+      display: flex;
+      flex-direction: column;
+    }
   }
 `;
 

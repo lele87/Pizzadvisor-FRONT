@@ -14,7 +14,9 @@ jest.mock("react-redux", () => ({
 
 describe("Given a header", () => {
   describe("When it's invoked", () => {
-    test("Then it should render a heading and a button", () => {
+    test("Then it should render a heading and 2 buttons", () => {
+      const expectedButtons = 2;
+
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -24,10 +26,10 @@ describe("Given a header", () => {
       );
 
       const expectedHeading = screen.getByRole("heading");
-      const expectedButton = screen.getByRole("button");
+      const expectedButton = screen.getAllByRole("button");
 
       expect(expectedHeading).toBeInTheDocument();
-      expect(expectedButton).toBeInTheDocument();
+      expect(expectedButton).toHaveLength(expectedButtons);
     });
   });
   describe("When the user clicks on the logout button", () => {

@@ -6,7 +6,9 @@ import PizzeriaFormPage from "./PizzeriaFormPage";
 
 describe("Given a PizzeriaFormPage", () => {
   describe("When it's instantiated", () => {
-    test("Then it should render a heading and a form", () => {
+    test("Then it should render 2 heading and a form", () => {
+      const expectedNumberHeading = 2;
+
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -15,11 +17,11 @@ describe("Given a PizzeriaFormPage", () => {
         </BrowserRouter>
       );
 
-      const expectedHeading = screen.getByRole("heading");
+      const expectedHeading = screen.getAllByRole("heading");
       const form = screen.getByLabelText("Name");
 
       expect(form).toBeInTheDocument();
-      expect(expectedHeading).toBeInTheDocument();
+      expect(expectedHeading).toHaveLength(expectedNumberHeading);
     });
   });
 });
