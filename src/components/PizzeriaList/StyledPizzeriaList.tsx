@@ -13,7 +13,16 @@ const StyledPizzeriaList = styled.div`
     gap: 2rem;
     padding-left: 0px;
 
-    @media (min-width: 699px) {
+    @media (min-width: 601px) {
+      flex-direction: row;
+      margin: 0;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    @media (min-width: 899px) {
       flex-direction: row;
       margin: 0;
       width: 80vw;

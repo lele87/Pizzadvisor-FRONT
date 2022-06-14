@@ -43,7 +43,7 @@ const StyledNavbar = styled.div`
 
     @media (min-width: 699px) {
       position: relative;
-      right: 620px;
+      right: calc(50% - 105px);
     }
   }
 `;
