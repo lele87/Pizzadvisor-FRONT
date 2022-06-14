@@ -17,12 +17,33 @@ const StyledPizzeria = styled.li`
     flex-direction: column;
   }
 
-  @media (min-width: 699px) {
+  @media (min-width: 601px) and (max-width: 898px) {
+    height: 250px;
+    margin: 0;
+    width: 450px;
+    display: flex;
+    align-items: center;
+    margin-left: 9px;
+  }
+
+  @media (min-width: 899px) {
+    height: 100%;
+    margin: 0;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 9px;
+  }
+
+  @media (min-width: 1024px) {
     height: 300px;
     margin: 0;
     width: 45%;
     display: flex;
+    flex-direction: row;
     align-items: center;
+    margin-left: 9px;
   }
 
   .image-container {
@@ -30,11 +51,13 @@ const StyledPizzeria = styled.li`
     height: 100%;
     width: 45%;
 
-    @media (min-width: 699px) {
-      margin-left: 9px;
+    @media (min-width: 899px) {
       display: flex;
       height: 100%;
-      width: 45%;
+      justify-content: center;
+      margin-top: 20px;
+      align-items: center;
+      margin-left: 2px;
     }
   }
 
@@ -48,9 +71,9 @@ const StyledPizzeria = styled.li`
     box-shadow: 0px 11px 35px 2px rgb(0 0 0 / 14%);
     border: 1px solid grey;
 
-    @media (min-width: 495px) and (max-width: 600px) {
-      width: 230px;
-      height: 230px;
+    @media (min-width: 495px) and (max-width: 698px) {
+      width: 190px;
+      height: 190px;
     }
 
     @media (min-width: 228px) and (max-width: 494px) {
@@ -64,8 +87,8 @@ const StyledPizzeria = styled.li`
     }
 
     @media (min-width: 699px) {
-      width: 250px;
-      height: 250px;
+      width: 210px;
+      height: 210px;
     }
   }
 
@@ -79,9 +102,19 @@ const StyledPizzeria = styled.li`
     margin-top: 20px;
     gap: 10px;
 
+    @media (min-width: 495px) {
+      margin-left: 35px;
+    }
+
     @media (min-width: 699px) {
       margin-left: 21px;
       margin-right: 15px;
+      text-align: center;
+    }
+    @media (min-width: 1024px) {
+      margin-left: 8px;
+      margin-right: 15px;
+      text-align: center;
     }
   }
 
@@ -101,7 +134,7 @@ const StyledPizzeria = styled.li`
     }
 
     @media (min-width: 601px) and (max-width: 1279px) {
-      font-size: 35px;
+      font-size: 18px;
     }
 
     @media (max-width: 460px) {
@@ -123,12 +156,12 @@ const StyledPizzeria = styled.li`
       font-size: 18px;
     }
 
-    @media (min-width: 461px) and (max-width: 600px) {
+    @media (min-width: 399px) and (max-width: 600px) {
       font-size: 16px;
     }
 
     @media (min-width: 601px) and (max-width: 1279px) {
-      font-size: 30px;
+      font-size: 20px;
     }
 
     @media (max-width: 460px) {
@@ -140,6 +173,21 @@ const StyledPizzeria = styled.li`
     padding-top: 8px;
     display: flex;
     gap: 6px;
+
+    @media (max-width: 600px) {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    @media (min-width: 601px) {
+      display: flex;
+      justify-content: center;
+    }
+
+    @media (min-width: 899px) {
+      display: flex;
+      justify-content: center;
+    }
   }
 
   .delete-icon {

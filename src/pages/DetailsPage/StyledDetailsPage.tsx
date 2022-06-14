@@ -104,7 +104,7 @@ const StyledDetailsPage = styled.div`
     font-weight: 400;
 
     @media (min-width: 699px) {
-      width: 20%;
+      width: 40%;
     }
   }
 
@@ -116,15 +116,39 @@ const StyledDetailsPage = styled.div`
     border: 0;
     margin-bottom: 20px;
 
+    @media (min-width: 460px) and (max-width: 550px) {
+      width: 415px;
+    }
+
+    @media (min-width: 551px) and (max-width: 698px) {
+      width: 505px;
+    }
+
     @media (min-width: 699px) {
-      width: 705px;
+      width: 490px;
+    }
+
+    @media (min-width: 1000px) {
+      width: 700px;
     }
   }
 
   iframe {
+    @media (min-width: 460px) and (max-width: 550px) {
+      width: 415px;
+    }
+
+    @media (min-width: 551px) and (max-width: 698px) {
+      width: 505px;
+    }
+
     @media (min-width: 699px) {
-      width: 705px;
+      width: 490px;
       height: 350px;
+    }
+
+    @media (min-width: 1000px) {
+      width: 700px;
     }
   }
 `;
