@@ -1,4 +1,8 @@
 import axios from "axios";
+import {
+  loadedOffActionCreator,
+  loadedOnActionCreator,
+} from "../features/userISlice";
 import { loginThunk, registerThunk } from "./userThunks";
 
 describe("Given a loginsThunk function", () => {
@@ -15,7 +19,11 @@ describe("Given a loginsThunk function", () => {
 
       await thunk(dispatch);
 
-      expect(dispatch).not.toHaveBeenCalled();
+      const loadingOn = loadedOnActionCreator();
+
+      await thunk(dispatch);
+
+      expect(dispatch).toHaveBeenCalledWith(loadingOn);
     });
   });
 });
@@ -34,10 +42,11 @@ describe("Given a registerThunk function", () => {
       };
 
       const thunk = registerThunk(userData);
+      const loadingOn = loadedOnActionCreator();
 
       await thunk(dispatch);
 
-      expect(dispatch).not.toHaveBeenCalled();
+      expect(dispatch).toHaveBeenCalledWith(loadingOn);
     });
   });
 });

@@ -14,10 +14,12 @@ import { DecodeToken } from "./types/types";
 import jwtDecode from "jwt-decode";
 import { loginActionCreator } from "./redux/features/userSlice";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
+import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
 
 function App() {
   const pizzeria = useAppSelector((state) => state.pizzeria);
   const { logged } = useAppSelector((state) => state.user);
+  const { loaded } = useAppSelector((state) => state.ui);
 
   const dispatch = useAppDispatch();
 
@@ -31,6 +33,7 @@ function App() {
 
   return (
     <>
+      {loaded && <LoadingSpinner />}
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
         <Route
