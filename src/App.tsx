@@ -67,11 +67,19 @@ function App() {
         />
         <Route
           path="/editpizzeria/:idPizzeria"
-          element={<EditPizzeriaPage />}
+          element={
+            <Controller>
+              <EditPizzeriaPage />
+            </Controller>
+          }
         />
         <Route
           path="/pizzerias/:idPizzeria"
-          element={<DetailsPage pizzeria={pizzeria} />}
+          element={
+            <Controller>
+              <DetailsPage pizzeria={pizzeria} />
+            </Controller>
+          }
         />
         <Route path="/*" element={<PageNotFound />} />
       </Routes>
