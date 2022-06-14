@@ -12,12 +12,11 @@ const HomePage = (): JSX.Element => {
   const { pagination } = useAppSelector((state) => state.pages);
   const { currentPage, pages } = useAppSelector((state) => state.pages);
   const { filter } = useAppSelector((state) => state.pizzerias);
-  const { specialty } = useAppSelector((state) => state.pizzeria);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(loadPizzeriasThunk(filter, pagination));
-  }, [dispatch, pagination, specialty, filter]);
+  }, [dispatch, pagination, filter]);
 
   return (
     <>

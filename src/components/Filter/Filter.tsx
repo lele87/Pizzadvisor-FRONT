@@ -3,13 +3,11 @@ import {
   resetPaginateActionCreator,
 } from "../../redux/features/paginationSlice";
 import { filterPizzeriasActionCreator } from "../../redux/features/pizzeriasSlice";
-import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
-import { loadPizzeriasThunk } from "../../redux/thunks/pizzeriasThunks";
+import { useAppDispatch } from "../../redux/store/hooks";
 import StyledFilter from "./StyledFilter";
 
 const Filter = () => {
   const dispatch = useAppDispatch();
-  const { pagination } = useAppSelector((state) => state.pages);
 
   const filterBySpecialty = async (specialty: string) => {
     dispatch(filterPizzeriasActionCreator(specialty));
@@ -21,7 +19,6 @@ const Filter = () => {
     dispatch(resetPaginateActionCreator());
     dispatch(resetCurrentPageActionCreator());
     dispatch(filterPizzeriasActionCreator("All"));
-    dispatch(loadPizzeriasThunk("All", pagination));
   };
   return (
     <StyledFilter className="filter-buttons">

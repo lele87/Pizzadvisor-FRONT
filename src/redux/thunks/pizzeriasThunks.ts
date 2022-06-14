@@ -28,6 +28,8 @@ export const loadPizzeriasThunk =
         dispatch(loadPizzeriasActionCreator(pizzerias));
       }
     } catch (error: any) {
+      toast.dismiss();
+      toast.error("Something went wrong");
       return error.message;
     }
   };
