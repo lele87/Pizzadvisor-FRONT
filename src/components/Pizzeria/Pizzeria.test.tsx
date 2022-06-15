@@ -98,7 +98,7 @@ describe("Given a Pizzeria component", () => {
 
           userEvent.click(infoImage);
 
-          expect(mockedUsedNavigate).toHaveBeenCalled();
+          expect(mockedUsedNavigate).toHaveBeenCalledWith("/pizzerias/1");
         });
       });
     });

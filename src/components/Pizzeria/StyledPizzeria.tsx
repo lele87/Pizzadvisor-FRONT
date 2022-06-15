@@ -4,7 +4,7 @@ const StyledPizzeria = styled.li`
   display: flex;
   align-items: center;
   width: 90%;
-  height: 210px;
+  height: 100%;
   background-color: #fafafa;
   border-radius: 4rem;
   margin: 0 auto;
@@ -97,9 +97,9 @@ const StyledPizzeria = styled.li`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 4px;
+    margin-left: 6px;
     margin-right: 3px;
-    margin-top: 20px;
+
     gap: 10px;
 
     @media (min-width: 495px) {
@@ -123,7 +123,7 @@ const StyledPizzeria = styled.li`
     margin-left: 5px;
     margin-right: 5px;
     padding-bottom: 10px;
-    padding-top: 7px;
+    padding-top: 12px;
 
     @media (min-width: 699px) {
       font-size: 25px;
@@ -138,7 +138,7 @@ const StyledPizzeria = styled.li`
     }
 
     @media (max-width: 460px) {
-      font-size: 15px;
+      font-size: 18px;
     }
   }
 
