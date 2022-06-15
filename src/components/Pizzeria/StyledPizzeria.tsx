@@ -65,8 +65,6 @@ const StyledPizzeria = styled.li`
     position: relative;
     bottom: 3.9px;
     right: 1px;
-    width: 300px;
-    height: 300px;
     border-radius: 50%;
     box-shadow: 0px 11px 35px 2px rgb(0 0 0 / 14%);
     border: 1px solid grey;

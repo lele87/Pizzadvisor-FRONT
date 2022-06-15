@@ -123,6 +123,7 @@ const PizzeriaForm = (): JSX.Element => {
                 formData.name === ""
               }
               type="submit"
+              value="submit"
             >
               {location.pathname === "/createpizzeria"
                 ? "CREATE PIZZERIA"
