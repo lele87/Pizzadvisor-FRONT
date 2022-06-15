@@ -34,6 +34,8 @@ export const loadPizzeriasThunk =
         dispatch(loadedOffActionCreator());
       }
     } catch (error: any) {
+      dispatch(loadedOffActionCreator());
+
       toast.dismiss();
       toast.error("Something went wrong");
       return error.message;
@@ -56,6 +58,7 @@ export const deletePizzeriaThunk =
         toast.success("You deleted a pizzeria");
       }
     } catch (error: any) {
+      dispatch(loadedOffActionCreator());
       toast.dismiss();
       toast.error("Something went wrong");
       return error.message;
@@ -83,6 +86,7 @@ export const createPizzeriaThunk =
         dispatch(createPizzeriaActionCreator(newPizzeria));
       }
     } catch (error: any) {
+      dispatch(loadedOffActionCreator());
       toast.dismiss();
       toast.error("Something went wrong");
       return error.message;
@@ -110,6 +114,7 @@ export const editPizzeriaThunk =
         dispatch(editPizzeriaActionCreator(updatedPizzeria));
       }
     } catch (error: any) {
+      dispatch(loadedOffActionCreator());
       toast.dismiss();
       toast.error("Something went wrong");
       return error.message;
