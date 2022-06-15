@@ -40,10 +40,12 @@ const RegisterForm = (): JSX.Element => {
     <>
       <StyledRegisterForm>
         <span className="welcome">Create account</span>
-        <form className="register-form" autoComplete="off" noValidate>
+        <form className="register-form">
           <label htmlFor="name">Name</label>
           <input
             id="name"
+            formNoValidate
+            autoComplete="off"
             value={formData.name}
             type="text"
             onChange={changeData}
@@ -52,6 +54,8 @@ const RegisterForm = (): JSX.Element => {
           <label htmlFor="username">Username</label>
           <input
             id="username"
+            formNoValidate
+            autoComplete="off"
             value={formData.username}
             type="text"
             onChange={changeData}
@@ -60,6 +64,8 @@ const RegisterForm = (): JSX.Element => {
           <label htmlFor="password">Password</label>
           <input
             id="password"
+            formNoValidate
+            autoComplete="off"
             type="password"
             onChange={changeData}
             value={formData.password}
