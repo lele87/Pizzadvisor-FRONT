@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Filter from "../../components/Filter/Filter";
 import Header from "../../components/Header/Header";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import Navbar from "../../components/Navbar/Navbar";
 import Pagination from "../../components/Pagination/Pagination";
 import PizzeriaList from "../../components/PizzeriaList/PizzeriaList";
