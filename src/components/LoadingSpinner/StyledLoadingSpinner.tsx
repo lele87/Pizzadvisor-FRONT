@@ -5,7 +5,7 @@ const StyledLoadingSpinner = styled.div`
   justify-content: center;
   padding: 160px 0;
   position: absolute;
-  top: calc(50% - 250px);
+  top: calc(50% - 170px);
   left: calc(50% - 40px);
 
   .ring {
