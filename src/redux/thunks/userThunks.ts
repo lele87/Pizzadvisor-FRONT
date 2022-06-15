@@ -39,6 +39,7 @@ export const registerThunk =
     } catch (error: any) {
       toast.dismiss();
       toast.error("Something went wrong");
+      dispatch(loadedOffActionCreator());
       return error.message;
     }
   };
@@ -62,6 +63,7 @@ export const loginThunk =
         toast.success("Successfully logged");
       }
     } catch (error: any) {
+      dispatch(loadedOffActionCreator());
       toast.dismiss();
       toast.error("Wrong username or password");
       return error.message;
