@@ -69,15 +69,12 @@ const PizzeriaForm = (): JSX.Element => {
     <>
       <StyledPizzeriaForm>
         <span className="welcome-form">Pizzeria Form</span>
-        <form
-          className="pizzeria-form"
-          autoComplete="off"
-          noValidate
-          onSubmit={submitCreatePizzeria}
-        >
+        <form className="pizzeria-form" onSubmit={submitCreatePizzeria}>
           <label htmlFor="name">Name</label>
           <input
             id="name"
+            formNoValidate
+            autoComplete="off"
             value={formData.name}
             type="text"
             onChange={changeData}
@@ -86,6 +83,8 @@ const PizzeriaForm = (): JSX.Element => {
           <label htmlFor="timetable">Opening Hours</label>
           <input
             id="timetable"
+            formNoValidate
+            autoComplete="off"
             value={formData.timetable}
             type="text"
             onChange={changeData}
@@ -94,6 +93,8 @@ const PizzeriaForm = (): JSX.Element => {
           <label htmlFor="address">Address</label>
           <input
             id="address"
+            formNoValidate
+            autoComplete="off"
             value={formData.address}
             type="text"
             onChange={changeData}
@@ -102,6 +103,8 @@ const PizzeriaForm = (): JSX.Element => {
           <label htmlFor="specialty">Special Pizza</label>
           <input
             id="specialty"
+            formNoValidate
+            autoComplete="off"
             value={formData.specialty}
             type="text"
             onChange={changeData}

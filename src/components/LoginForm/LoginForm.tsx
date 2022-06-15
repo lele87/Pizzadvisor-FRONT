@@ -41,15 +41,12 @@ const LoginForm = (): JSX.Element => {
     <>
       <StyledLoginForm>
         <span className="welcome">Login Section</span>
-        <form
-          className="login-form"
-          autoComplete="off"
-          noValidate
-          onSubmit={handleSubmit}
-        >
+        <form className="login-form" onSubmit={handleSubmit}>
           <label htmlFor="username">Username</label>
           <input
             id="username"
+            formNoValidate
+            autoComplete="off"
             value={formData.username}
             type="text"
             onChange={changeData}
@@ -58,6 +55,8 @@ const LoginForm = (): JSX.Element => {
           <label htmlFor="password">Password</label>
           <input
             id="password"
+            formNoValidate
+            autoComplete="off"
             value={formData.password}
             type="password"
             onChange={changeData}
