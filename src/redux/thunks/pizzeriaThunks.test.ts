@@ -3,6 +3,10 @@ import { server } from "../../mocks/server";
 import { loadPizzeriaActionCreator } from "../features/pizzeriaSlice";
 import axios from "axios";
 import { loadPizzeriaThunk } from "./pizzeriaThunks";
+import {
+  loadedOffActionCreator,
+  loadedOnActionCreator,
+} from "../features/userISlice";
 
 beforeEach(() => server.listen());
 afterEach(() => server.resetHandlers());
@@ -35,9 +39,12 @@ describe("Given a loadPizzeriaThunk function", () => {
 
       const thunk = loadPizzeriaThunk(idPizzeria);
 
+      const loadedOnAction = loadedOnActionCreator();
+      const loadedOffAction = loadedOffActionCreator();
       await thunk(dispatch);
 
-      expect(dispatch).not.toHaveBeenCalled();
+      expect(dispatch).toHaveBeenCalledWith(loadedOnAction);
+      expect(dispatch).toHaveBeenCalledWith(loadedOffAction);
     });
   });
 });
