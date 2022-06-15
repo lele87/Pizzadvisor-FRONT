@@ -63,6 +63,8 @@ const StyledPizzeria = styled.li`
 
   img {
     position: relative;
+    width: 300px;
+    height: 300px;
     bottom: 3.9px;
     right: 1px;
     border-radius: 50%;
@@ -96,8 +98,7 @@ const StyledPizzeria = styled.li`
     flex-direction: column;
     justify-content: center;
     margin-left: 6px;
-    margin-right: 3px;
-
+    margin-right: 5px;
     gap: 10px;
 
     @media (min-width: 495px) {
