@@ -1,4 +1,8 @@
 import { NavLink, useNavigate } from "react-router-dom";
+import {
+  resetCurrentPageActionCreator,
+  resetPaginateActionCreator,
+} from "../../redux/features/paginationSlice";
 import { blankStateActionCreator } from "../../redux/features/pizzeriaSlice";
 import { logoutActionCreator } from "../../redux/features/userSlice";
 import { useAppDispatch } from "../../redux/store/hooks";
@@ -10,6 +14,8 @@ const Header = (): JSX.Element => {
 
   const logOut = () => {
     dispatch(logoutActionCreator());
+    dispatch(resetPaginateActionCreator());
+    dispatch(resetCurrentPageActionCreator());
     localStorage.removeItem("token");
     navigate("/");
   };
