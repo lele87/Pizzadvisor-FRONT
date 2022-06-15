@@ -59,12 +59,11 @@ describe("Given a DetailsPage component", () => {
           </Provider>
         </BrowserRouter>
       );
-
       const button = screen.getByRole("button", { name: "EDIT DETAILS" });
 
       userEvent.click(button);
 
-      expect(mockedUsedNavigate).toHaveBeenCalled();
+      expect(mockedUsedNavigate).toHaveBeenCalledWith("/editpizzeria/1");
     });
   });
 });

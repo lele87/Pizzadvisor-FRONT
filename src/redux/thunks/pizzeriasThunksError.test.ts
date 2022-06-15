@@ -84,18 +84,7 @@ describe("Given an editPizzeriaThunk function", () => {
       };
 
       jest.spyOn(Storage.prototype, "getItem").mockReturnValue("token");
-      // axios.get = jest.fn().mockResolvedValue({
-      //   data: {
-      //     name: "NAP 1",
-      //     address: "La Rambla",
-      //     timetable: "15-24",
-      //     image: "image3",
-      //     owner: "629684abc46cf477e7ca7008",
-      //     specialty: "Marinara",
-      //     id: "1",
-      //   },
-      //   status: 400,
-      // });
+
       axios.get = jest.fn().mockRejectedValue({});
 
       const editPizzeriaAction = editPizzeriaActionCreator(pizzeriaData);

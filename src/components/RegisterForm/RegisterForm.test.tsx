@@ -120,7 +120,6 @@ describe("Given a RegisterForm component", () => {
         userEvent.type(passwordInput, password);
 
         userEvent.click(registerButton);
-
         expect(mockDispatch).toHaveBeenCalled();
       });
     });
