@@ -26,8 +26,6 @@ const Pizzeria = ({
           <img
             src={image ? `${imageBackup}` : "no-image-icon.png"}
             alt="neapolitan pizza"
-            width={300}
-            height={300}
           />
         </div>
         <div className="info-container">

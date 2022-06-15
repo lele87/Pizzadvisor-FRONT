@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import { NavLink, useNavigate } from "react-router-dom";
 import {
   resetCurrentPageActionCreator,
@@ -17,6 +18,8 @@ const Header = (): JSX.Element => {
     dispatch(resetPaginateActionCreator());
     dispatch(resetCurrentPageActionCreator());
     localStorage.removeItem("token");
+    toast.dismiss();
+    toast.success("You have succesfully logged out");
     navigate("/");
   };
 
