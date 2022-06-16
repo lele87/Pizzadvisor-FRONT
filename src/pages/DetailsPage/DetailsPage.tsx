@@ -42,7 +42,8 @@ const DetailsPage = ({
           <div className="pizza-container">
             <div className="image-container">
               <img
-                src={image === "" ? "no-image-icon.png" : `${imageBackup}`}
+                src={image ? `${imageBackup}` : "no-image-icon.png"}
+                // src={image === "" ? "no-image-icon.png" : `${imageBackup}`}
                 alt="neapolitan pizza"
               />
             </div>
@@ -58,16 +59,18 @@ const DetailsPage = ({
                 <span>{specialty}</span>
               </div>
               <div className="map-container">
-                <iframe
-                  title="map"
-                  width="300"
-                  height="250"
-                  frameBorder="0"
-                  style={{ border: 0 }}
-                  referrerPolicy="no-referrer-when-downgrade"
-                  src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_API_KEY}&q=${address}`}
-                  allowFullScreen
-                ></iframe>
+                {address && (
+                  <iframe
+                    title="map"
+                    width="300"
+                    height="250"
+                    frameBorder="0"
+                    style={{ border: 0 }}
+                    referrerPolicy="no-referrer-when-downgrade"
+                    src={`https://www.google.com/maps/embed/v1/place?key=${process.env.REACT_APP_API_KEY}&q=${address}`}
+                    allowFullScreen
+                  ></iframe>
+                )}
               </div>
             </div>
             {user.userInfo.id === owner ? (
