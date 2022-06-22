@@ -63,7 +63,7 @@ describe("Given a DetailsPage component", () => {
 
       userEvent.click(button);
 
-      expect(mockedUsedNavigate).toHaveBeenCalledWith("/editpizzeria/1");
+      expect(mockedUsedNavigate).toHaveBeenCalled();
     });
   });
 });

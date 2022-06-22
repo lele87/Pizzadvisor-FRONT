@@ -43,7 +43,6 @@ const DetailsPage = ({
             <div className="image-container">
               <img
                 src={image ? `${imageBackup}` : "no-image-icon.png"}
-                // src={image === "" ? "no-image-icon.png" : `${imageBackup}`}
                 alt="neapolitan pizza"
               />
             </div>
