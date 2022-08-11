@@ -41,6 +41,6 @@ Trello | Postman | Figma
 
 ## Links
 
-## 🍕 [Pizzadvisor](https://emanuele-panesi-front-final-project-202204-bcn.netlify.app/)
+## 🍕 [Pizzadvisor](https://pizzadvisor.netlify.app)
 
 ## ⌨️ [Back deploy Render](https://emanuele-panesi-back-final-project.onrender.com/)
