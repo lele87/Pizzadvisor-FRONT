@@ -41,6 +41,12 @@ Trello | Postman | Figma
 
 ## Links
 
+### Test credentials
+
+> username: test<br/>
+> Password: test1234<br/>
+
+
 ## 🍕 [Pizzadvisor](https://pizzadvisor.netlify.app)
 
 ## ⌨️ [Back deploy Render](https://emanuele-panesi-back-final-project.onrender.com/)
