@@ -37,7 +37,7 @@ const Filter = () => {
               name="item"
               id="item1"
               title="All"
-              onClick={() => filterBySpecialty("All")}
+              onClick={() => showAll()}
             />
             <input
               type="radio"

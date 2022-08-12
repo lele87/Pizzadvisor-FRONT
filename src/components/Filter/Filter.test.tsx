@@ -14,8 +14,8 @@ jest.mock("react-redux", () => ({
 
 describe("Given a Filter component", () => {
   describe("When it's instantiated", () => {
-    test("Then it should render 3 buttons", () => {
-      const expectedLength = 3;
+    test("Then it should render 5 list items", () => {
+      const expectedLength = 5;
 
       render(
         <BrowserRouter>
@@ -25,12 +25,12 @@ describe("Given a Filter component", () => {
         </BrowserRouter>
       );
 
-      const expectedButton = screen.getAllByRole("button");
+      const expectedButton = screen.getAllByRole("listitem");
 
       expect(expectedButton).toHaveLength(expectedLength);
     });
   });
-  describe("When the user clicks on the filter buttons", () => {
+  describe("When the user clicks on the input elements", () => {
     test("Then the dispatch should be invoked", () => {
       render(
         <BrowserRouter>
@@ -39,15 +39,18 @@ describe("Given a Filter component", () => {
           </Provider>
         </BrowserRouter>
       );
-      const allButton = screen.getByRole("button", { name: "ALL" });
-      const margheritaButton = screen.getByRole("button", {
-        name: "MARGHERITA",
-      });
-      const diavolaButton = screen.getByRole("button", { name: "DIAVOLA" });
 
-      userEvent.click(allButton);
-      userEvent.click(margheritaButton);
-      userEvent.click(diavolaButton);
+      const allInputText = screen.getByLabelText("All");
+      const margheritaInputText = screen.getByLabelText("Margherita");
+      const cheeseInputText = screen.getByLabelText("4 Cheese");
+      const hamMushroomsInputText = screen.getByLabelText("Ham and Mushrooms");
+      const diavolaInputText = screen.getByLabelText("Diavola");
+
+      userEvent.click(allInputText);
+      userEvent.click(margheritaInputText);
+      userEvent.click(diavolaInputText);
+      userEvent.click(hamMushroomsInputText);
+      userEvent.click(cheeseInputText);
 
       expect(mockDispatch).toHaveBeenCalled();
     });
