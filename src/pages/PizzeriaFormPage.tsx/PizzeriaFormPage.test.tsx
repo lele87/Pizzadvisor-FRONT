@@ -6,8 +6,8 @@ import PizzeriaFormPage from "./PizzeriaFormPage";
 
 describe("Given a PizzeriaFormPage", () => {
   describe("When it's instantiated", () => {
-    test("Then it should render 2 heading and a form", () => {
-      const expectedNumberHeading = 2;
+    test.only("Then it should render 6 heading and a form", () => {
+      const expectedNumberHeading = 6;
 
       render(
         <BrowserRouter>

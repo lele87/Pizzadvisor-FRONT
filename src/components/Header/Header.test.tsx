@@ -22,7 +22,8 @@ jest.mock("react-router-dom", () => ({
 describe("Given a header", () => {
   describe("When it's invoked", () => {
     test("Then it should render a heading and 2 buttons", () => {
-      const expectedButtons = 2;
+      const expectedListItem = 4;
+      const expectedHeading = 5;
 
       render(
         <BrowserRouter>
@@ -32,14 +33,14 @@ describe("Given a header", () => {
         </BrowserRouter>
       );
 
-      const expectedHeading = screen.getByRole("heading");
-      const expectedButton = screen.getAllByRole("button");
+      const menuHeader = screen.getAllByRole("listitem");
+      const menuHeading = screen.getAllByRole("heading");
 
-      expect(expectedHeading).toBeInTheDocument();
-      expect(expectedButton).toHaveLength(expectedButtons);
+      expect(menuHeading).toHaveLength(expectedHeading);
+      expect(menuHeader).toHaveLength(expectedListItem);
     });
   });
-  describe("When the user clicks on the logout button", () => {
+  describe("When the user clicks on the logout link", () => {
     test("Then the dispatch should be invoked", () => {
       render(
         <BrowserRouter>
@@ -49,14 +50,14 @@ describe("Given a header", () => {
         </BrowserRouter>
       );
 
-      const logoutButton = screen.getByRole("button", { name: "LOGOUT" });
+      const logoutLink = screen.getByRole("link", { name: "Logout" });
 
-      userEvent.click(logoutButton);
+      userEvent.click(logoutLink);
 
       expect(mockDispatch).toHaveBeenCalled();
     });
   });
-  describe("When the user clicks on the create pizzeria button", () => {
+  describe("When the user clicks on the create pizzeria link", () => {
     test("Then the dispatch should be called", () => {
       render(
         <BrowserRouter>
@@ -66,28 +67,13 @@ describe("Given a header", () => {
         </BrowserRouter>
       );
 
-      const logoutButton = screen.getByRole("button", {
-        name: "CREATE PIZZERIA",
+      const addPizzeriaLink = screen.getByRole("link", {
+        name: "Add pizzeria",
       });
 
-      userEvent.click(logoutButton);
+      userEvent.click(addPizzeriaLink);
 
       expect(mockDispatch).toHaveBeenCalled();
-    });
-    test("Then it should navigate to HomePage", () => {
-      render(
-        <BrowserRouter>
-          <Provider store={store}>
-            <Header />
-          </Provider>
-        </BrowserRouter>
-      );
-
-      const button = screen.getByRole("button", { name: "CREATE PIZZERIA" });
-
-      userEvent.click(button);
-
-      expect(mockedUsedNavigate).toHaveBeenCalled();
     });
   });
 });

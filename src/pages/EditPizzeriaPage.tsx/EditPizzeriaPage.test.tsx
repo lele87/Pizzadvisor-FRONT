@@ -15,9 +15,9 @@ jest.mock("react-redux", () => ({
 
 describe("Given an EditPizzeriaPage", () => {
   describe("When it's invoked", () => {
-    test("Then it should render a form with 4 input fields and 3 buttons", () => {
+    test("Then it should render a form with 4 input fields and 1 button", () => {
       const expectedNumberInput = 4;
-      const expectedNumberButtons = 3;
+      const expectedNumberButtons = 1;
 
       render(
         <BrowserRouter>

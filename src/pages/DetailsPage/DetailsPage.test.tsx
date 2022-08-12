@@ -42,8 +42,8 @@ describe("Given a DetailsPage component", () => {
     </BrowserRouter>
   );
   describe("When it's invoked", () => {
-    test("Then it should render 2 heading and 1 image", () => {
-      const expectedLength = 3;
+    test("Then it should render 7 heading and 1 image", () => {
+      const expectedLength = 7;
 
       const expectedHeading = screen.getAllByRole("heading");
 
