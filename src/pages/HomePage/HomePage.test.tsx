@@ -6,7 +6,9 @@ import HomePage from "./HomePage";
 
 describe("Given a HomePage page", () => {
   describe("When it's instantiated", () => {
-    test("Then it should render a Header component with a heading and a button", () => {
+    test("Then it should render a Header component with 7 heading elements", () => {
+      const expectedNumberHeading = 7;
+
       render(
         <BrowserRouter>
           <Provider store={store}>
@@ -15,13 +17,9 @@ describe("Given a HomePage page", () => {
         </BrowserRouter>
       );
 
-      const expectedHeading = screen.getByRole("heading", {
-        name: "Pizzadvisor",
-      });
-      const expectedButton = screen.getByRole("button", { name: "LOGOUT" });
+      const menuHeader = screen.getAllByRole("listitem");
 
-      expect(expectedHeading).toBeInTheDocument();
-      expect(expectedButton).toBeInTheDocument();
+      expect(menuHeader).toHaveLength(expectedNumberHeading);
     });
   });
 });

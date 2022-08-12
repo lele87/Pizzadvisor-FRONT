@@ -35,7 +35,6 @@ const Header = (): JSX.Element => {
           <label className="menu__btn" htmlFor="menu__toggle">
             <span></span>
           </label>
-
           <ul className="menu__box">
             <li>
               <NavLink className="menu__item" to="/home">
