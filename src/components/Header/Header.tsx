@@ -6,7 +6,7 @@ import {
 } from "../../redux/features/paginationSlice";
 import { blankStateActionCreator } from "../../redux/features/pizzeriaSlice";
 import { logoutActionCreator } from "../../redux/features/userSlice";
-import { useAppDispatch } from "../../redux/store/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import StyledHeader from "./StyledHeader";
 
 const Header = (): JSX.Element => {
@@ -42,7 +42,7 @@ const Header = (): JSX.Element => {
               </NavLink>
             </li>
             <li>
-              <NavLink className="menu__item" to="#">
+              <NavLink className="menu__item" to="/favourites">
                 <h3>My Favourites places</h3>
               </NavLink>
             </li>

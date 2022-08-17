@@ -31,10 +31,12 @@ const Navbar = (): JSX.Element => {
             />
           </li>
           <li>
-            <img
-              src="/images/user-solid.svg"
-              alt="Redirect to favourites places link user"
-            />
+            <Link to="/favourites">
+              <img
+                src="/images/user-solid.svg"
+                alt="Redirect to favourites places link user"
+              />
+            </Link>
           </li>
           <h3 className="info-navbar">© 2022 By Pizzadvisor</h3>
         </ul>
