@@ -21,7 +21,7 @@ const FavouritesPage = (): JSX.Element => {
         <div className="content">
           <Header />
           <div className="info-text">
-            <h2>My Favourites Places</h2>
+            <h2>My Favourite Places</h2>
           </div>
           <PizzeriaList />
         </div>

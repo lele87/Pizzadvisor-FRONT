@@ -2,24 +2,24 @@ import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import store from "../../redux/store";
-import HomePage from "./HomePage";
+import FavouritesPage from "./FavouritesPage";
 
-describe("Given a HomePage page", () => {
-  describe("When it's instantiated", () => {
+describe("Given a FavouritesPage", () => {
+  describe("When it's invoked", () => {
     test("Then it should render a Header component and a Navbar component", () => {
-      const expectedNumberHeading = 12;
+      const expectedNumberHeading = 7;
 
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <HomePage />
+            <FavouritesPage />
           </Provider>
         </BrowserRouter>
       );
 
-      const menuHeader = screen.getAllByRole("listitem");
+      const expectedListElements = screen.getAllByRole("listitem");
 
-      expect(menuHeader).toHaveLength(expectedNumberHeading);
+      expect(expectedListElements).toHaveLength(expectedNumberHeading);
     });
   });
 });
