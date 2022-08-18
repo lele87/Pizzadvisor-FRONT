@@ -42,8 +42,8 @@ const Header = (): JSX.Element => {
               </NavLink>
             </li>
             <li>
-              <NavLink className="menu__item" to="#">
-                <h3>My Favourites places</h3>
+              <NavLink className="menu__item" to="/favourites">
+                <h3>My Favourite places</h3>
               </NavLink>
             </li>
             <li>

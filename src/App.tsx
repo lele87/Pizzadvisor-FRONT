@@ -15,6 +15,7 @@ import jwtDecode from "jwt-decode";
 import { loginActionCreator } from "./redux/features/userSlice";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
+import FavouritesPage from "./pages/FavouritesPage/FavouritesPage";
 
 function App() {
   const pizzeria = useAppSelector((state) => state.pizzeria);
@@ -81,6 +82,14 @@ function App() {
           element={
             <Controller>
               <DetailsPage pizzeria={pizzeria} />
+            </Controller>
+          }
+        />
+        <Route
+          path="/favourites"
+          element={
+            <Controller>
+              <FavouritesPage />
             </Controller>
           }
         />

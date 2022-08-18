@@ -35,6 +35,13 @@ const pizzeriasSlice = createSlice({
       ...pizzerias,
       filter: action.payload,
     }),
+    loadFavouritePizzerias: (
+      pizzerias,
+      action: PayloadAction<IPizzeria[]>
+    ) => ({
+      ...pizzerias,
+      pizzeriaInfo: [...action.payload],
+    }),
   },
 });
 
@@ -44,6 +51,7 @@ export const {
   createPizzeria: createPizzeriaActionCreator,
   editPizzeria: editPizzeriaActionCreator,
   filterPizzerias: filterPizzeriasActionCreator,
+  loadFavouritePizzerias: loadFavouritePizzeriasActionCreator,
 } = pizzeriasSlice.actions;
 
 export default pizzeriasSlice.reducer;

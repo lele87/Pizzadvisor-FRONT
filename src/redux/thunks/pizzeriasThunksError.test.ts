@@ -5,12 +5,14 @@ import {
   createPizzeriaActionCreator,
   deletePizzeriaActionCreator,
   editPizzeriaActionCreator,
+  loadFavouritePizzeriasActionCreator,
   loadPizzeriasActionCreator,
 } from "../features/pizzeriasSlice";
 import {
   createPizzeriaThunk,
   deletePizzeriaThunk,
   editPizzeriaThunk,
+  loadFavouritePizzeriasThunk,
   loadPizzeriasThunk,
 } from "./pizzeriasThunks";
 
@@ -94,6 +96,24 @@ describe("Given an editPizzeriaThunk function", () => {
       await thunk(dispatch);
 
       expect(dispatch).not.toHaveBeenCalledWith(editPizzeriaAction);
+    });
+  });
+});
+
+describe("Given a loadFavouritePizzeriasThunk function", () => {
+  describe("When it's called with an authorized token but the api responds with an error", () => {
+    test("Then it should call the tost's error method", async () => {
+      const dispatch = jest.fn();
+
+      axios.get = jest.fn().mockRejectedValue({});
+
+      const loadAction = loadFavouritePizzeriasActionCreator(mockPizzerias);
+
+      const thunk = loadFavouritePizzeriasThunk("1");
+
+      await thunk(dispatch);
+
+      expect(dispatch).not.toHaveBeenCalledWith(loadAction);
     });
   });
 });

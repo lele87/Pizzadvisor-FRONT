@@ -5,6 +5,7 @@ import pizzeriasSlice, {
   deletePizzeriaActionCreator,
   editPizzeriaActionCreator,
   filterPizzeriasActionCreator,
+  loadFavouritePizzeriasActionCreator,
   loadPizzeriasActionCreator,
 } from "./pizzeriasSlice";
 
@@ -133,6 +134,29 @@ describe("Given a filter Pizzeria Reducer", () => {
       const pizzeriaStatus = pizzeriasSlice(initialState, filterPizzeriaAction);
 
       expect(pizzeriaStatus).toEqual(expectedNewState);
+    });
+  });
+});
+
+describe("Given a loadFavouritePizzerias reducer", () => {
+  describe("When it receives an initial state and a load action with the pizzerias info", () => {
+    test("Then it should return the new pizzerias state with the received info", () => {
+      const initialState: IPizzeriaState = {
+        pizzeriaInfo: [],
+        filter: "All",
+      };
+
+      const pizzeriasInfo = mockPizzerias;
+
+      const expectedState = {
+        pizzeriaInfo: [...mockPizzerias],
+        filter: "All",
+      };
+
+      const loadAction = loadFavouritePizzeriasActionCreator(pizzeriasInfo);
+      const pizzeriaStatus = pizzeriasSlice(initialState, loadAction);
+
+      expect(pizzeriaStatus).toEqual(expectedState);
     });
   });
 });

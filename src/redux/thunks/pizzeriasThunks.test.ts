@@ -5,12 +5,14 @@ import {
   createPizzeriaActionCreator,
   deletePizzeriaActionCreator,
   editPizzeriaActionCreator,
+  loadFavouritePizzeriasActionCreator,
   loadPizzeriasActionCreator,
 } from "../features/pizzeriasSlice";
 import {
   createPizzeriaThunk,
   deletePizzeriaThunk,
   editPizzeriaThunk,
+  loadFavouritePizzeriasThunk,
   loadPizzeriasThunk,
 } from "./pizzeriasThunks";
 
@@ -107,6 +109,27 @@ describe("Given an editPizzeriaThunk function", () => {
       await thunk(dispatch);
 
       expect(dispatch).toHaveBeenCalledWith(editPizzeriaAction);
+    });
+  });
+});
+
+describe("Given a loadFavouritePizzeriasThunk function", () => {
+  describe("When it's called", () => {
+    test("Then it should dispatch the loadFavouritePizzeriasActionCreator", async () => {
+      const dispatch = jest.fn();
+      const userId = "1";
+
+      axios.get = jest.fn().mockResolvedValue({
+        data: { pizzerias: mockPizzerias },
+        status: 200,
+      });
+
+      const loadAction = loadFavouritePizzeriasActionCreator(mockPizzerias);
+      const thunk = loadFavouritePizzeriasThunk(userId);
+
+      await thunk(dispatch);
+
+      expect(dispatch).toHaveBeenCalledWith(loadAction);
     });
   });
 });
