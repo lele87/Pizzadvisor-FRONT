@@ -85,14 +85,7 @@ function App() {
             </Controller>
           }
         />
-        <Route
-          path="/favourites/:userId"
-          element={
-            <Controller>
-              <FavouritesPage />
-            </Controller>
-          }
-        />
+        <Route path="/favourites" element={<FavouritesPage />} />
         <Route path="/*" element={<PageNotFound />} />
       </Routes>
       <Toaster

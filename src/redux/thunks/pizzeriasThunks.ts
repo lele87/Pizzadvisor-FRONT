@@ -5,6 +5,7 @@ import {
   createPizzeriaActionCreator,
   deletePizzeriaActionCreator,
   editPizzeriaActionCreator,
+  loadFavouritePizzeriasActionCreator,
   loadPizzeriasActionCreator,
 } from "../features/pizzeriasSlice";
 import {
@@ -112,6 +113,31 @@ export const editPizzeriaThunk =
       if (updatedPizzeria) {
         dispatch(loadedOffActionCreator());
         dispatch(editPizzeriaActionCreator(updatedPizzeria));
+      }
+    } catch (error: any) {
+      dispatch(loadedOffActionCreator());
+      toast.dismiss();
+      toast.error("Something went wrong");
+      return error.message;
+    }
+  };
+
+export const loadFavouritePizzeriasThunk =
+  (userId: string) => async (dispatch: AppDispatch) => {
+    const url: string = `${process.env.REACT_APP_API_URL}users/${userId}`;
+    const token = localStorage.getItem("token");
+
+    try {
+      loadedOnActionCreator();
+      const {
+        data: { pizzerias },
+      } = await axios.get(url, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      if (pizzerias) {
+        dispatch(loadFavouritePizzeriasActionCreator(pizzerias));
+        dispatch(loadedOffActionCreator());
       }
     } catch (error: any) {
       dispatch(loadedOffActionCreator());
